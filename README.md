@@ -89,21 +89,3 @@ Or visit the live version at: **[bahasalah255.github.io/Myportfolio](https://bah
 
 ---
 
-##  Author
-
-**Salah Baha** — Full Stack Developer
-GitHub: [@bahasalah255](https://github.com/bahasalah255)
-
----
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-<div align="center">
-
-⭐ If you like my portfolio, feel free to star the repo — it means a lot!
-
-</div>

@@ -1,91 +1,16 @@
-#  Salah Baha — Personal Portfolio
+# React + Vite
 
-<div align="center">
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-**Full Stack Developer | Morocco **
+Currently, two official plugins are available:
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Portfolio-6C63FF?style=for-the-badge)](https://bahasalah255.github.io/Myportfolio/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bahasalah255)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bahasalah255)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+## React Compiler
 
-<!-- Add a screenshot once available -->
-<!-- ![Portfolio Preview](./preview.png) -->
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-</div>
+## Expanding the ESLint configuration
 
----
-
-##  About
-
-This is my **personal developer portfolio** — a clean, responsive, single-page website that showcases who I am, what I build, and the skills I've developed as a Full Stack Developer. It includes my projects, tech stack, certificates, and contact information — all in one place.
-
----
-
-##  Sections
-
--  **Hero / Introduction** — Who I am and what I do
--  **Skills** — Technologies and tools I work with (Web Dev, Python, and more)
--  **Projects** — Highlighted personal and academic projects
--  **Certificates** — Proof of completed trainings and courses
--  **Contact** — Ways to reach me
-
----
-
-##  Built With
-
-| Technology | Role |
-|------------|------|
-| HTML5 | Structure & content |
-| CSS3 | Styling, animations & responsive layout |
-
-> No frameworks, no libraries — just clean, handcrafted HTML & CSS. 
-
----
-
-##  Project Structure
-
-```
-Myportfolio/
-│
-├── index.html                  # Main portfolio page
-├── style.css                   # All styles
-│
-├── web-dev.jpg                 # Web development skill image
-├── python.jpg                  # Python skill image
-├── under.jpg / under-removebg-preview.png   # Assets
-├── linkedin-removebg-preview.png            # LinkedIn icon
-│
-├── 57b747f0-...pdf             # Certificate 1
-└── c5965751-...pdf             # Certificate 2
-```
-
----
-
-##  Getting Started
-
-```bash
-# Clone the repo
-git clone https://github.com/bahasalah255/Myportfolio.git
-
-# Open in browser
-cd Myportfolio
-open index.html
-```
-
-Or visit the live version at: **[bahasalah255.github.io/Myportfolio](https://bahasalah255.github.io/Myportfolio/)**
-
----
-
-##  Roadmap
-
-- [ ] Upgrade Porfolio To React 
-- [ ] Smooth scroll animations
-- [ ] Contact form with email integration
-- [ ] Blog / articles section
-- [ ] More projects added over time
-
----
-
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

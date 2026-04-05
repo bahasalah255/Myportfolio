@@ -3,6 +3,10 @@
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { motion } from 'framer-motion'
+import RadixTooltipDemo from '../animations/Tooltip'
+import LiquidButtonDemo from '../components/Liquidbutton'
+import CV from '../assets/CV.pdf'
 
 const navigation = [
   { name: 'Home', href: '#' },
@@ -22,7 +26,11 @@ export default function Hero() {
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
-              <span> {"<Baha />"}</span>
+              <span>
+                <RadixTooltipDemo side="bottom">
+                  <LiquidButtonDemo>{"<Baha />"}</LiquidButtonDemo>
+                </RadixTooltipDemo>
+              </span>
             </a>
           </div>
           <div className="flex lg:hidden">
@@ -43,7 +51,7 @@ export default function Hero() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="/cv.pdf" download="Salah_Baha_CV.pdf" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-purple-700 hover:bg-purple-600 text-white text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 active:scale-95">
+            <a href={CV} download={CV} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-purple-700 hover:bg-purple-600 text-white text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 active:scale-95">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
               </svg>
@@ -95,7 +103,7 @@ export default function Hero() {
         </Dialog>
       </header>
 
-      <div className="relative isolate ml-30 px-6 pt-14 lg:px-8">
+      <div className="relative isolate ml-30 px-5 pt-1 lg:px-8">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -109,8 +117,14 @@ export default function Hero() {
           />
         </div>
         
-        <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
-        <div className="w-full max-w-2xl py-32 sm:py-48 lg:py-56">
+      <motion.div
+       initial={{ opacity: 0, y: 30 }}
+       whileInView={{ opacity: 1, y: 0 }}
+       viewport={{ once: true, amount: 0.35 }}
+       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+       className="flex flex-col gap-7 lg:flex-row"
+      >
+        <div className="w-full  py-32 sm:py-48 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative inline-flex items-center gap-2.5 rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
               <span class="relative flex h-2.5 w-2.5">
@@ -125,30 +139,27 @@ export default function Hero() {
           </div>
         
           <div className="text-center">
-            <h1 className="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">
-              Junior Devloppeur
-            </h1>
-            <p className="mt-8 text-lg font-medium text-pretty text-gray-400 sm:text-xl/8">
-              Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-              fugiat veniam occaecat.
+           <h1 className="text-[10rem] sm:text-[7rem] font-bold tracking-tight text-balance">
+  <span className='text-white'>BAHA</span> <span className='text-gray-500'>SALAHEDDINE</span>
+</h1>
+            <p className="mt-4 text-lg sm:text-[1.5rem] font-medium text-pretty text-gray-400 sm:text-xl/8 ml-110 w-200">
+             20-year-old Full-Stack Developer from Morocco. Passionate about building fast, scalable web applications.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
-                className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                className="rounded-lg bg-indigo-500 px-12 py-4 sm:text-[1.2rem] font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
-                Get started
+               View Projects <span aria-hidden="true">→</span>
               </a>
               <a href="#" className="text-sm/6 font-semibold text-white">
-                Learn more <span aria-hidden="true">→</span>
+        <LiquidButtonDemo size="lg">Let's Talk </LiquidButtonDemo>       
+
               </a>
             </div>
           </div>
         </div>
-         <div className="w-full p-4">
-    <h2 className="text-xl font-bold mt-60">Image</h2>
-  </div>
-        </div>
+        </motion.div>
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"

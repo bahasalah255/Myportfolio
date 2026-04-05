@@ -63,13 +63,10 @@ export default function Hero() {
           </div>
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-          <div className="fixed inset-0 z-50" />
-          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-100/10">
-            <div className="flex items-center justify-between">
-              <a href="#" className="-m-1.5 p-1.5">
-                <span> {"<Baha />"}</span>
-               
-              </a>
+          <div className="fixed inset-0 z-40 bg-black/20 backdrop-blur-[1px]" />
+          <DialogPanel className="fixed inset-x-4 top-20 z-50 rounded-2xl border border-white/10 bg-gray-900/90 p-4 shadow-2xl shadow-black/40 backdrop-blur-md">
+            <div className="flex items-center justify-between gap-3">
+              
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
@@ -79,34 +76,34 @@ export default function Hero() {
                 <XMarkIcon aria-hidden="true" className="size-6" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-white/10">
-                <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:pl-4 hover:text-cyan-200"
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-                <div className="py-6">
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
-                  >
-                    CV
-                  </a>
-                </div>
-              </div>
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-2 pb-1">
+              {navigation.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="group relative text-sm font-semibold text-white transition-all duration-300 hover:text-cyan-200"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                  <span className="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 rounded-full bg-cyan-300/90 shadow-[0_0_12px_rgba(103,232,249,0.9)] transition-transform duration-300 group-hover:scale-x-100" />
+                </a>
+              ))}
+            </div>
+            <div className="mt-4 flex justify-center">
+              <a
+                href={CV}
+                download={CV}
+                onClick={() => setMobileMenuOpen(false)}
+                className="inline-flex items-center gap-2 rounded-full bg-purple-700 px-5 py-2.5 text-sm font-medium tracking-wide text-white transition-all duration-200 hover:scale-105 hover:bg-purple-600 active:scale-95"
+              >
+                <ButtonDemo>CV</ButtonDemo>
+              </a>
             </div>
           </DialogPanel>
         </Dialog>
       </header>
 
-      <div className="relative isolate ml-30 px-5 pt-1 lg:px-8">
+      <div className="relative isolate mx-auto max-w-7xl px-4 pt-6 sm:px-5 sm:pt-0 lg:px-8">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -127,9 +124,9 @@ export default function Hero() {
        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
        className="flex flex-col gap-7 lg:flex-row"
       >
-        <div className="w-full  py-32 sm:py-48 lg:py-56">
+        <div className="w-full py-20 sm:py-40 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative inline-flex items-center gap-2.5 rounded-full px-3 py-1 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20">
+            <div className="relative inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20 mr-20">
               <span class="relative flex h-2.5 w-2.5">
     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
     <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span>
@@ -142,27 +139,72 @@ export default function Hero() {
           </div>
         
           <div className="text-center">
-           <h1 className="text-[10rem] sm:text-[7rem] font-bold tracking-tight text-balance">
-  <span className='text-white'>BAHA</span> <span className='text-gray-500'>SALAHEDDINE</span>
+           <h1 className="text-5xl sm:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[0.95] text-balance">
+  <span className='text-white'>BAHA</span>{' '}
+  <span className='block sm:inline text-gray-500'>SALAH EDDINE.</span>
 </h1>
-            <p className="mt-4 text-lg sm:text-[1.5rem] font-medium text-pretty text-gray-400 sm:text-xl/8 ml-110 w-200">
-             20-year-old Full-Stack Developer from Morocco. Passionate about building fast, scalable web applications.
+            <p className="mx-auto mt-4 max-w-2xl px-2 text-base sm:text-[1.25rem] font-medium text-pretty text-gray-400 leading-7 sm:leading-8">
+             20-year-old <span className='text-white'>Full-Stack Developer</span> from Morocco. Passionate about building fast, scalable web applications.
             </p>
             
-            <div className="mt-10 flex items-center justify-center gap-x-6">
+            <div className="mx-auto mt-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:max-w-none sm:flex-row sm:gap-x-6">
               <a
                 href="#"
-                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-12 py-4 text-base font-semibold text-white shadow-lg shadow-indigo-900/35 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:from-indigo-400 hover:to-violet-400 hover:shadow-[0_18px_40px_rgba(99,102,241,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-8 sm:px-12 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-indigo-900/35 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:from-indigo-400 hover:to-violet-400 hover:shadow-[0_18px_40px_rgba(99,102,241,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
                View Projects <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
-              <a href="#" className="group text-sm/6 font-semibold text-white">
+              <a href="#" className="group inline-flex w-full sm:w-auto justify-center text-sm/6 font-semibold text-white">
         <LiquidButtonDemo size="lg">Let's Talk </LiquidButtonDemo>       
 
               </a>
+            
             </div>
+            <hr className="mx-auto mt-10 sm:mt-16 w-full max-w-md sm:max-w-4xl border-white/10" />
+            <div className="mt-4 flex flex-wrap justify-center gap-2 sm:gap-[2px] text-white">
+              <a href="https://github.com/bahasalah255" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-6 w-6"
+                >
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.082-.729.082-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.807 1.305 3.492.998.108-.776.418-1.305.762-1.605-2.665-.303-5.467-1.332-5.467-5.932 0-1.31.468-2.382 1.235-3.222-.123-.303-.535-1.523.117-3.176 0 0 1.008-.322 3.3 1.23A11.49 11.49 0 0 1 12 6.844c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.241 2.873.118 3.176.77.84 1.233 1.912 1.233 3.222 0 4.61-2.807 5.625-5.48 5.921.43.372.823 1.103.823 2.222 0 1.606-.015 2.9-.015 3.293 0 .321.216.694.825.576C20.565 21.796 24 17.297 24 12c0-6.63-5.373-12-12-12Z" />
+                </svg>
+                <span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/baha-salaheddine-844201339/" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="h-6 w-6"
+                >
+                  <path d="M20.447 20.452H16.89v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.345V9h3.414v1.561h.049c.476-.9 1.637-1.85 3.369-1.85 3.601 0 4.266 2.37 4.266 5.455v6.286ZM5.337 7.433a2.063 2.063 0 1 1 0-4.126 2.063 2.063 0 0 1 0 4.126ZM7.119 20.452H3.555V9H7.12v11.452Z" />
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+              <a href="mailto:salaheddinebaha32@gmail.com" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-6 w-6"
+                >
+                  <rect x="3" y="5" width="18" height="14" rx="2" ry="2" />
+                  <path d="M3 7l9 6 9-6" />
+                </svg>
+                <span>Email</span>
+              </a>
+            </div>
+             
           </div>
         </div>
+        
         </motion.div>
         <div
           aria-hidden="true"

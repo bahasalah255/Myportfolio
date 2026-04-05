@@ -10,19 +10,18 @@ import CV from '../assets/CV.pdf'
 import ButtonDemo from '../components/ButtonFlip'
 
 const navigation = [
-  { name: 'Home', href: '#' },
-  { name: 'About', href: '#' },
-  { name: 'Skills', href: '#' },
-  { name: 'Projects', href: '#' },
-  { name: 'Experiences', href: '#' },
-    { name: 'Contact', href: '#' },
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contact' },
 ]
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="" style={{ background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" }}>
+    <div id="home" className="" style={{ background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)" }}>
       <header className="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-gray-900/80 to-gray-900/0">
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1">

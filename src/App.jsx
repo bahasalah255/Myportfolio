@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Hero from './sections/Hero'
 import LightWavesBackground from './sections/Background'
 import Loader from './sections/Loader'
+import About from './sections/About'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -15,12 +16,13 @@ function App() {
     return <Loader />
   }
 
-  return(
+  return (
     <>
-    <LightWavesBackground/>
-    <Hero/>
+      <LightWavesBackground />
+      <Hero />
+      <About />
     </>
-  );
+  )
 }
 
 export default App;

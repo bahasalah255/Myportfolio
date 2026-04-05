@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import RadixTooltipDemo from '../animations/Tooltip'
 import LiquidButtonDemo from '../components/Liquidbutton'
 import CV from '../assets/CV.pdf'
+import ButtonDemo from '../components/ButtonFlip'
 
 const navigation = [
   { name: 'Home', href: '#' },
@@ -45,17 +46,20 @@ export default function Hero() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="text-sm/6 font-semibold text-white">
+              <a
+                key={item.name}
+                href={item.href}
+                className="group relative text-sm/6 font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:text-cyan-200"
+              >
                 {item.name}
+                <span className="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 rounded-full bg-cyan-300/90 shadow-[0_0_12px_rgba(103,232,249,0.9)] transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href={CV} download={CV} className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-purple-700 hover:bg-purple-600 text-white text-sm font-medium tracking-wide transition-all duration-200 hover:scale-105 active:scale-95">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
-              </svg>
-              CV
+              
+              <ButtonDemo>CV</ButtonDemo>
             </a>
           </div>
         </nav>
@@ -83,7 +87,7 @@ export default function Hero() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white transition-all duration-300 hover:bg-white/10 hover:pl-4 hover:text-cyan-200"
                     >
                       {item.name}
                     </a>
@@ -145,14 +149,15 @@ export default function Hero() {
             <p className="mt-4 text-lg sm:text-[1.5rem] font-medium text-pretty text-gray-400 sm:text-xl/8 ml-110 w-200">
              20-year-old Full-Stack Developer from Morocco. Passionate about building fast, scalable web applications.
             </p>
+            
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <a
                 href="#"
-                className="rounded-lg bg-indigo-500 px-12 py-4 sm:text-[1.2rem] font-semibold text-white shadow-xs hover:bg-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-12 py-4 text-base font-semibold text-white shadow-lg shadow-indigo-900/35 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:from-indigo-400 hover:to-violet-400 hover:shadow-[0_18px_40px_rgba(99,102,241,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
-               View Projects <span aria-hidden="true">→</span>
+               View Projects <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
-              <a href="#" className="text-sm/6 font-semibold text-white">
+              <a href="#" className="group text-sm/6 font-semibold text-white">
         <LiquidButtonDemo size="lg">Let's Talk </LiquidButtonDemo>       
 
               </a>

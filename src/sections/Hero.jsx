@@ -17,6 +17,56 @@ const navigation = [
   { name: 'Contact', href: '#contact' },
 ]
 
+const leftContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.16,
+      ease: 'easeOut',
+    },
+  },
+}
+
+const titleVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: 'easeOut' },
+  },
+}
+
+const paragraphVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: 'easeOut', delay: 0.08 },
+  },
+}
+
+const buttonRowVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: 'easeOut',
+      staggerChildren: 0.14,
+    },
+  },
+}
+
+const buttonItemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: 'easeOut' },
+  },
+}
+
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -117,13 +167,7 @@ export default function Hero() {
           />
         </div>
         
-      <motion.div
-       initial={{ opacity: 0, y: 30 }}
-       whileInView={{ opacity: 1, y: 0 }}
-       viewport={{ once: true, amount: 0.35 }}
-       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-       className="flex flex-col gap-7 lg:flex-row"
-      >
+      <div className="flex flex-col gap-7 lg:flex-row">
         <div className="w-full py-20 sm:py-40 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20 mr-20">
@@ -138,28 +182,35 @@ export default function Hero() {
             </div>
           </div>
         
-          <div className="text-center">
-           <h1 className="text-5xl sm:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[0.95] text-balance">
+          <motion.div
+            className="text-center"
+            variants={leftContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+           <motion.h1 variants={titleVariants} className="text-5xl sm:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[0.95] text-balance">
   <span className='text-white'>BAHA</span>{' '}
   <span className='block sm:inline text-gray-500'>SALAH EDDINE.</span>
-</h1>
-            <p className="mx-auto mt-4 max-w-2xl px-2 text-base sm:text-[1.25rem] font-medium text-pretty text-gray-400 leading-7 sm:leading-8">
+</motion.h1>
+            <motion.p variants={paragraphVariants} className="mx-auto mt-4 max-w-2xl px-2 text-base sm:text-[1.25rem] font-medium text-pretty text-gray-400 leading-7 sm:leading-8">
              20-year-old <span className='text-white'>Full-Stack Developer</span> from Morocco. Passionate about building fast, scalable web applications.
-            </p>
+            </motion.p>
             
-            <div className="mx-auto mt-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:max-w-none sm:flex-row sm:gap-x-6">
-              <a
+            <motion.div className="mx-auto mt-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:max-w-none sm:flex-row sm:gap-x-6" variants={buttonRowVariants}>
+              <motion.a
                 href="#"
+                variants={buttonItemVariants}
                 className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-8 sm:px-12 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-indigo-900/35 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:from-indigo-400 hover:to-violet-400 hover:shadow-[0_18px_40px_rgba(99,102,241,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
                View Projects <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-              </a>
-              <a href="#" className="group inline-flex w-full sm:w-auto justify-center text-sm/6 font-semibold text-white">
+              </motion.a>
+              <motion.a href="#" variants={buttonItemVariants} className="group inline-flex w-full sm:w-auto justify-center text-sm/6 font-semibold text-white">
         <LiquidButtonDemo size="lg">Let's Talk </LiquidButtonDemo>       
 
-              </a>
+              </motion.a>
             
-            </div>
+            </motion.div>
             <hr className="mx-auto mt-10 sm:mt-16 w-full max-w-md sm:max-w-4xl border-white/10" />
             <div className="mt-4 flex flex-wrap justify-center gap-2 sm:gap-[2px] text-white">
               <a href="https://github.com/bahasalah255" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
@@ -201,11 +252,15 @@ export default function Hero() {
                 <span>Email</span>
               </a>
             </div>
+            <div className="mt-6 flex flex-col items-center gap-2 text-gray-300">
+              <span className="h-12 w-px bg-white/30" />
+               <span className="text-[10px] uppercase tracking-[0.35em]">Scroll</span>
+            </div>
              
-          </div>
+            </motion.div>
         </div>
         
-        </motion.div>
+          </div>
         <div
           aria-hidden="true"
           className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"

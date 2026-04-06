@@ -3,6 +3,7 @@ import Hero from './sections/Hero'
 import LightWavesBackground from './sections/Background'
 import Loader from './sections/Loader'
 import About from './sections/About'
+import Skills from './sections/Skills'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -21,6 +22,7 @@ function App() {
       <LightWavesBackground />
       <Hero />
       <About />
+      <Skills/>
     </>
   )
 }

@@ -65,7 +65,8 @@ export default function Skills() {
   <CircularGallery
     bend={1}
     textColor="#ffffff"
-    borderRadius={0.05}
+    borderRadius={0.12}
+    font="600 18px Figtree"
     scrollSpeed={2}
     scrollEase={0.05}
   />

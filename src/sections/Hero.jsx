@@ -189,7 +189,7 @@ export default function Hero() {
             variants={leftContainerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
           >
            <motion.h1 variants={titleVariants} className="text-5xl sm:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[0.95] text-balance">
   <span className='text-white'>BAHA</span>{' '}

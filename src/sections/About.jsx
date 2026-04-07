@@ -70,7 +70,7 @@ export default function About() {
             variants={leftContainerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
           >
             <div className="lg:max-w-lg">
               <motion.p
@@ -117,7 +117,7 @@ export default function About() {
             variants={cardVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
           >
             <Magnet padding={80} disabled={false} magnetStrength={8}>
               <div className="relative mx-auto w-full max-w-xl">

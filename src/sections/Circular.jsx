@@ -387,6 +387,7 @@ class App {
 }
 
 export default function CircularGallery({
+  title,
   items,
   bend = 3,
   textColor = '#ffffff',
@@ -402,5 +403,26 @@ export default function CircularGallery({
       app.destroy();
     };
   }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
-  return <div className="w-full h-full overflow-hidden bg-transparent cursor-grab active:cursor-grabbing" ref={containerRef} />;
+
+  return (
+    <div className="w-full h-full flex flex-col">
+      {title ? (
+        <div className="mb-6">
+          <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] text-blue-200/90">
+            Toolbox
+          </span>
+          <h2 className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight leading-none">
+            <span className="text-white">{title.split(' ').slice(0, -2).join(' ') || title}</span>{' '}
+            {title.split(' ').length > 2 ? (
+              <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-violet-300 bg-clip-text text-transparent">
+                {title.split(' ').slice(-2).join(' ')}
+              </span>
+            ) : null}
+          </h2>
+          <div className="mt-3 h-px w-44 bg-gradient-to-r from-blue-400/90 via-violet-400/70 to-transparent" />
+        </div>
+      ) : null}
+      <div className="w-full flex-1 min-h-0 overflow-hidden bg-transparent cursor-grab active:cursor-grabbing" ref={containerRef} />
+    </div>
+  );
 }

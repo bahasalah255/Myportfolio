@@ -4,6 +4,8 @@ import LightWavesBackground from './sections/Background'
 import Loader from './sections/Loader'
 import About from './sections/About'
 import Skills from './sections/Skills'
+import Journey from './sections/Journey'
+import ScrollProgressBar from './components/ScrollProgressBar'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -19,10 +21,12 @@ function App() {
 
   return (
     <>
+      <ScrollProgressBar />
       <LightWavesBackground />
       <Hero />
       <About />
       <Skills/>
+      <Journey/>
     </>
   )
 }

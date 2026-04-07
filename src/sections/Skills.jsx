@@ -1,7 +1,49 @@
 import React from "react";
 import { RadialIntro } from "@/components/animate-ui/components/community/radial-intro";
-import CircularGallery from './Circular'
+import Orbit from '@/components/ui/Orbit'
 
+const ITEMS1 = [
+  {
+    id: 1,
+    name: "VS Code",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
+  },
+  {
+    id: 2,
+    name: "Vim",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
+  },
+  {
+    id: 3,
+    name: "Linux",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+  },
+  {
+    id: 4,
+    name: "Git",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+  },
+  {
+    id: 5,
+    name: "GitHub",
+     src: "https://www.svgrepo.com/show/475654/github-color.svg",
+  },
+  {
+    id: 6,
+    name: "Postman",
+    src: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg",
+  },
+  {
+  id: 7,
+  name: "Arch Linux",
+  src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/archlinux/archlinux-original.svg",
+},
+{
+  id: 8,
+  name: "Linear",
+  src: "https://cdn.simpleicons.org/linear/ffffff",
+}
+];
 const ITEMS = [
   {
     id: 1,
@@ -59,19 +101,37 @@ export default function Skills() {
   A curated set of technologies I use to build modern, scalable, and high-performance web applications.
 </p>
        </div>
-       <div className="grid grid-cols-1 lg:grid-cols-2 gap-40">
+       <div className="grid grid-cols-1 lg:grid-cols-2 gap-30">
        <RadialIntro orbitItems={ITEMS}/>
       
-       <div style={{ height: '600px', position: 'relative' }}>
-  <CircularGallery
-    title="Tools I use"
-
-    bend={1}
-    textColor="#ffffff"
-    borderRadius={0.12}
-    font="600 18px Figtree"
-    scrollSpeed={2}
-    scrollEase={0.05}
+       <div className="relative mt-12 flex h-[500px] w-full items-center justify-center overflow-hidden rounded-3xl">
+  <div className="absolute left-1/2 top-6 z-10 -translate-x-1/2 rounded-2xl border border-white/15 bg-white/5 px-4 py-2 backdrop-blur-md shadow-lg shadow-black/20">
+    <div className="flex items-center gap-2.5">
+      <span className="h-2 w-2 rounded-full bg-white/80" />
+      <div className="leading-tight">
+        <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Visualization</p>
+        <p className="text-sm font-semibold text-white/95">Tools Orbit</p>
+      </div>
+    </div>
+  </div>
+  <Orbit
+    images={ITEMS1.map(item => item.src)}
+    shape="ellipse"
+    baseWidth={500}
+    radiusX={190}
+    radiusY={120}
+    itemSize={64}
+    duration={30}
+    direction="normal"
+    fill={true}
+    rotation={0}
+    responsive={true}
+    width={500}
+    height={500}
+    className="mx-auto"
+    showPath={true}
+    pathColor="rgba(255, 255, 255, 0.2)"
+    pathWidth={1}
   />
   </div>
 </div>

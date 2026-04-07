@@ -1,6 +1,7 @@
 import React from "react";
 import { RadialIntro } from "@/components/animate-ui/components/community/radial-intro";
 import Orbit from '@/components/ui/Orbit'
+import { motion } from "framer-motion";
 
 const ITEMS1 = [
   {
@@ -47,54 +48,67 @@ const ITEMS1 = [
 const ITEMS = [
   {
     id: 1,
-    name: "Framer University",
+    name: "React",
     src: "https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png",
   },
   {
+    id : 2 ,
+    name : "Javascript",
+    src : "https://www.codewithharry.com/img/notes/js.webp",
+  },
+  {
     id: 2,
-    name: "arhamkhnz",
+    name: "PHP",
     src: "https://cdn.iconscout.com/icon/free/png-256/free-php-logo-icon-svg-download-png-2284918.png?f=webp",
   },
   {
     id: 3,
-    name: "Skyleen",
+    name: "HTML",
     src: "https://p1.hiclipart.com/preview/930/119/770/html-logo-html5-email-web-feed-theme-orange-line-circle-png-clipart.jpg",
   },
   {
     id: 4,
-    name: "Shadcn",
+    name: "Css",
     src: "https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png",
   },
   {
     id: 5,
-    name: "Adam Wathan",
+    name: "Python",
     src: "https://www.zdnet.fr/wp-content/uploads/zdnet/2024/02/Python202.jpg",
   },
   {
     id: 6,
-    name: "Guillermo Rauch",
+    name: "Django",
     src: "https://www.svgrepo.com/show/353657/django-icon.svg",
   },
   {
     id: 7,
-    name: "Jhey",
+    name: "Tailwend Css",
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDKn3vA2YUbXzN0ZC3gALWJ08gJN-Drl15w&s",
   },
   {
     id: 8,
-    name: "David Haz",
+    name: "Boostrap",
     src: "https://www.developpez.net/forums/attachments/p597349d1/a/a/a",
   },
   {
     id: 9,
-    name: "Matt Perry",
+    name: "MySql",
     src: "https://images.icon-icons.com/1381/PNG/512/mysqlworkbench_93532.png",
   },
 ];
 
 export default function Skills() {
     return(
+      
+      <>
+      
     <section id="skills" className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32 text-white">
+      <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}>
         <div className="flex justify-center flex-col gap-1">
        <p className="mt-2 text-4xl sm:text-7xl font-bold tracking-tight text-white text-balance leading-none"><span className="text-white">My Tech </span><span className="text-gray-500">Stack</span></p>
        <p className="mt-4 text-gray-300 max-w-2xl  text-lg leading-relaxed">
@@ -135,7 +149,10 @@ export default function Skills() {
   />
   </div>
 </div>
+</motion.div>
         </section>
+        
+        </>
     );
 
 }

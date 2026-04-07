@@ -59,10 +59,13 @@ export default function Skills() {
   A curated set of technologies I use to build modern, scalable, and high-performance web applications.
 </p>
        </div>
-       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+       <div className="grid grid-cols-1 lg:grid-cols-2 gap-40">
        <RadialIntro orbitItems={ITEMS}/>
+      
        <div style={{ height: '600px', position: 'relative' }}>
   <CircularGallery
+    title="Tools I use"
+
     bend={1}
     textColor="#ffffff"
     borderRadius={0.12}

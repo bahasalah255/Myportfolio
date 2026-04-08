@@ -6,6 +6,7 @@ import About from './sections/About'
 import Skills from './sections/Skills'
 import Journey from './sections/Journey'
 import ScrollProgressBar from './components/ScrollProgressBar'
+import Projects from './sections/Projects'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -27,6 +28,7 @@ function App() {
       <About />
       <Skills/>
       <Journey/>
+      <Projects/>
     </>
   )
 }

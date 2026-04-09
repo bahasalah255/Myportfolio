@@ -196,12 +196,16 @@ export default function Hero() {
   <span className='block sm:inline text-gray-500'>SALAH EDDINE.</span>
 </motion.h1>
             <motion.p variants={paragraphVariants} className="mx-auto mt-4 max-w-2xl px-2 text-base sm:text-[1.25rem] font-medium text-pretty text-gray-400 leading-7 sm:leading-8">
-             20-year-old <span className='text-white'>Full-Stack Developer</span> from Morocco. Passionate about building fast, scalable web applications.
+             20-year-old <span className='text-white'>Full-Stack Developer</span> from Morocco. Passionate about building fast, scalable web applications.<br></br>
+            <p className="group text-white/40 text-xs mt-3 uppercase tracking-[0.2em] inline-block relative">
+  TRUST THE PROCESS
+  <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-purple-400 transition-all duration-500 group-hover:w-full"></span>
+</p>
             </motion.p>
             
             <motion.div className="mx-auto mt-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:max-w-none sm:flex-row sm:gap-x-6" variants={buttonRowVariants}>
               <motion.a
-                href="#"
+                href="#projects"
                 variants={buttonItemVariants}
                 className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-8 sm:px-12 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-indigo-900/35 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:from-indigo-400 hover:to-violet-400 hover:shadow-[0_18px_40px_rgba(99,102,241,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >

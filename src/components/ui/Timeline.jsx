@@ -39,7 +39,7 @@ export function TimelineDemo() {
       ),
     },
     {
-      title: "Feb 14 – Mar 14, 2025",
+      title: "Feb 14 – Mar 14, 2026",
       content: (
         <div className="space-y-3">
           <div className="flex items-center gap-3">

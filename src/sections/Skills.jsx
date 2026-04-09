@@ -49,52 +49,52 @@ const ITEMS = [
   {
     id: 1,
     name: "React",
-    src: "https://cdn.freebiesupply.com/logos/large/2x/react-1-logo-png-transparent.png",
-  },
-  {
-    id : 2 ,
-    name : "Javascript",
-    src : "https://www.codewithharry.com/img/notes/js.webp",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
   {
     id: 2,
-    name: "PHP",
-    src: "https://cdn.iconscout.com/icon/free/png-256/free-php-logo-icon-svg-download-png-2284918.png?f=webp",
+    name: "Javascript",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
   },
   {
     id: 3,
-    name: "HTML",
-    src: "https://p1.hiclipart.com/preview/930/119/770/html-logo-html5-email-web-feed-theme-orange-line-circle-png-clipart.jpg",
+    name: "PHP",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
   },
   {
     id: 4,
-    name: "Css",
-    src: "https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582747_1280.png",
+    name: "HTML",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
   },
   {
     id: 5,
-    name: "Python",
-    src: "https://www.zdnet.fr/wp-content/uploads/zdnet/2024/02/Python202.jpg",
+    name: "Css",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
   },
   {
     id: 6,
-    name: "Django",
-    src: "https://www.svgrepo.com/show/353657/django-icon.svg",
+    name: "Python",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
   },
   {
     id: 7,
-    name: "Tailwend Css",
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDKn3vA2YUbXzN0ZC3gALWJ08gJN-Drl15w&s",
+    name: "Django",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
   },
   {
     id: 8,
-    name: "Boostrap",
-    src: "https://www.developpez.net/forums/attachments/p597349d1/a/a/a",
+    name: "Tailwend Css",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
   },
   {
     id: 9,
+    name: "Boostrap",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg",
+  },
+  {
+    id: 10,
     name: "MySql",
-    src: "https://images.icon-icons.com/1381/PNG/512/mysqlworkbench_93532.png",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function Skills() {
       <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.8, ease: "easeOut" }}>
         <div className="flex justify-center flex-col gap-1">
        <p className="mt-2 text-4xl sm:text-7xl font-bold tracking-tight text-white text-balance leading-none"><span className="text-white">My Tech </span><span className="text-gray-500">Stack</span></p>

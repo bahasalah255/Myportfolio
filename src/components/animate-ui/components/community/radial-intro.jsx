@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion'
 
 export function RadialIntro({ orbitItems = [] }) {
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: false, amount: 0.35 })
+  const isInView = useInView(sectionRef, { once: true, amount: 0.35 })
   const items = orbitItems.slice(0, 10)
   const radius = 150
   const introDuration = 0.7
@@ -24,6 +24,7 @@ export function RadialIntro({ orbitItems = [] }) {
 
       <motion.div
         className="absolute inset-0"
+        style={{ willChange: 'transform' }}
         initial={{ rotate: 0 }}
         animate={isInView ? { rotate: 360 } : { rotate: 0 }}
         transition={
@@ -42,7 +43,7 @@ export function RadialIntro({ orbitItems = [] }) {
             <motion.div
               key={item.id ?? index}
               className="absolute left-1/2 top-1/2"
-              style={{ transform: 'translate(-50%, -50%)' }}
+              style={{ transform: 'translate(-50%, -50%)', willChange: 'transform, opacity' }}
               initial={{ x: 0, y: 0, opacity: 0, scale: 0.5 }}
               animate={isInView ? { x: targetX, y: targetY, opacity: 1, scale: 1 } : { x: 0, y: 0, opacity: 0, scale: 0.5 }}
               transition={{
@@ -59,6 +60,9 @@ export function RadialIntro({ orbitItems = [] }) {
                     event.currentTarget.src = 'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg'
                   }}
                   className="h-14 w-14 rounded-full object-cover"
+                  width="56"
+                  height="56"
+                  decoding="async"
                   loading="lazy"
                 />
               </div>

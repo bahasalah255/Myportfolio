@@ -197,10 +197,6 @@ export default function Hero() {
 </motion.h1>
             <motion.p variants={paragraphVariants} className="mx-auto mt-4 max-w-2xl px-2 text-base sm:text-[1.25rem] font-medium text-pretty text-gray-400 leading-7 sm:leading-8">
              20-year-old <span className='text-white'>Full-Stack Developer</span> from Morocco. Passionate about building fast, scalable web applications.<br></br>
-            <p className="group text-white/40 text-xs mt-3 uppercase tracking-[0.2em] inline-block relative">
-  TRUST THE PROCESS
-  <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-purple-400 transition-all duration-500 group-hover:w-full"></span>
-</p>
             </motion.p>
             
             <motion.div className="mx-auto mt-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:max-w-none sm:flex-row sm:gap-x-6" variants={buttonRowVariants}>

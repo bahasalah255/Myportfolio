@@ -7,6 +7,7 @@ import Skills from './sections/Skills'
 import Journey from './sections/Journey'
 import ScrollProgressBar from './components/ScrollProgressBar'
 import Projects from './sections/Projects'
+import AmbientTrustText from './components/ui/AmbientTrustText'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -24,6 +25,7 @@ function App() {
     <>
       <ScrollProgressBar />
       <LightWavesBackground />
+      <AmbientTrustText />
       <Hero />
       <About />
       <Skills/>

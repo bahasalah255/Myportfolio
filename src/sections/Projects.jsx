@@ -5,55 +5,62 @@ import ista from '../assets/images/ista.png'
 import autofix from '../assets/images/autofix.png'
 import devis2 from '../assets/images/devis2.png'
 import django from '../assets/images/django.png'
+import GitHubStarsButtonDemo from "../components/ui/ButtonGithub";
 export default function Projects() {
   const projects = [
     {
       title: "Devis App",
+      repo_name : "devis-app",
       description:
         "Application de génération de devis avec gestion des clients, produits et export PDF.",
       tech: ["React Native", "Laravel", "MySQL"],
       image: devis,
-      github: "#",
+      github: "https://github.com/bahasalah255/devis-app",
       demo: "#",
     },
     {
       title: "Garage Management",
+      repo_name : "System-Gestion-Stagaires",
       description:
         "Tableau de bord pour gérer les rendez-vous, clients, véhicules, réparations et factures.",
-      tech: ["PHP", "MySQL", "Bootstrap"],
+      tech: ["PHP", "MySQL", "Bootstrap", "React"],
       image: admin,
       github: "#",
       demo: "#",
     },
     {
       title: "ISTA Platform",
+      repo_name : "my-ista",
       description:
         "Plateforme web moderne pour présenter les informations académiques et faciliter l’accès aux ressources.",
-      tech: ["React", "Tailwind CSS", "Framer Motion"],
+      tech: ["Html", "CSS" , "Javascript"],
       image: ista,
       github: "#",
       demo: "#",
     },
     {
       title: "AutoFix Website",
+      repo_name : "AutoFix-Garage",
       description:
         "Site vitrine automobile avec sections services, prise de contact et mise en page orientée conversion.",
-      tech: ["React", "Tailwind CSS", "Responsive UI"],
+      tech: ["PHP", "HTML" , "Css" , "JavaScript" , "Boostrap" ],
       image: autofix,
       github: "#",
       demo: "#",
     },
     {
       title: "Devis Admin",
+      repo_name : "devis-app-web",
       description:
         "Interface d’administration pour suivre les devis, modifier les lignes produit et gérer les états de validation.",
-      tech: ["React", "Laravel API", "MySQL"],
+      tech: ["React", "Laravel API", "MySQL" ,"Tailwend CSS"],
       image: devis2,
       github: "#",
       demo: "#",
     },
     {
       title: "Django Dashboard",
+      repo_name : "Simple-Crud-Django",
       description:
         "Dashboard back-office avec authentification, gestion des données et visualisation d’indicateurs clés.",
       tech: ["Django", "Python", "SQLite"],
@@ -94,7 +101,7 @@ export default function Projects() {
               transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
               className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm hover:border-white/25 hover:bg-white/[0.06] transition-all duration-300"
             >
-              <div className="relative overflow-hidden bg-slate-950/50">
+              <div className="group/image relative overflow-hidden bg-slate-950/50">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -103,18 +110,19 @@ export default function Projects() {
                   draggable={false}
                   className="w-full aspect-[16/10] object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                <span className="absolute top-4 left-4 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-xs font-medium tracking-wide text-white/90">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent transition-opacity duration-300 group-hover/image:opacity-100" />
+                <div className="pointer-events-none absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100" />
+                <span className="absolute top-4 left-4 z-10 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-xs font-medium tracking-wide text-white/90 backdrop-blur-sm">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-              </div>
-
-              <div className="p-6 md:p-7">
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white/95">{project.title}</h3>
-
-                  <div className="flex items-center gap-3">
-                    <a
+                <div className="pointer-events-none absolute inset-x-0 bottom-4 z-10 flex justify-center gap-5 opacity-0 translate-y-2 transition-all duration-300 group-hover/image:opacity-100 group-hover/image:translate-y-0">
+                  <GitHubStarsButtonDemo
+                    variant={project.github}
+                    size="sm"
+                    repo={project.repo_name}
+                    className="pointer-events-auto"
+                  />
+                  <a
                       href={project.github}
                       target={project.github !== "#" ? "_blank" : undefined}
                       rel={project.github !== "#" ? "noreferrer" : undefined}
@@ -130,6 +138,16 @@ export default function Projects() {
                     >
                       Live
                     </a>
+                </div>
+              </div>
+
+              <div className="p-6 md:p-7">
+                <div className="flex items-start justify-between gap-4 mb-4">
+                  <h3 className="text-xl sm:text-2xl font-semibold text-white/95">{project.title}</h3>
+
+                  <div className="flex items-center gap-3">
+                    
+                    
                   </div>
                 </div>
 

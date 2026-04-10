@@ -1,74 +1,7 @@
 import { motion } from "framer-motion";
-import devis from '../assets/images/devis1.png'
-import admin from '../assets/images/admin.png'
-import ista from '../assets/images/ista.png'
-import autofix from '../assets/images/autofix.png'
-import devis2 from '../assets/images/devis2.png'
-import django from '../assets/images/django.png'
 import GitHubStarsButtonDemo from "../components/ui/ButtonGithub";
+import projects from '../data/projects.js'
 export default function Projects() {
-  const projects = [
-    {
-      title: "Devis App",
-      repo_name : "devis-app",
-      description:
-        "Application de génération de devis avec gestion des clients, produits et export PDF.",
-      tech: ["React Native", "Laravel", "MySQL"],
-      image: devis,
-      github: "https://github.com/bahasalah255/devis-app",
-      demo: "#",
-    },
-    {
-      title: "Garage Management",
-      repo_name : "System-Gestion-Stagaires",
-      description:
-        "Tableau de bord pour gérer les rendez-vous, clients, véhicules, réparations et factures.",
-      tech: ["PHP", "MySQL", "Bootstrap", "React"],
-      image: admin,
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "ISTA Platform",
-      repo_name : "my-ista",
-      description:
-        "Plateforme web moderne pour présenter les informations académiques et faciliter l’accès aux ressources.",
-      tech: ["Html", "CSS" , "Javascript"],
-      image: ista,
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "AutoFix Website",
-      repo_name : "AutoFix-Garage",
-      description:
-        "Site vitrine automobile avec sections services, prise de contact et mise en page orientée conversion.",
-      tech: ["PHP", "HTML" , "Css" , "JavaScript" , "Boostrap" ],
-      image: autofix,
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Devis Admin",
-      repo_name : "devis-app-web",
-      description:
-        "Interface d’administration pour suivre les devis, modifier les lignes produit et gérer les états de validation.",
-      tech: ["React", "Laravel API", "MySQL" ,"Tailwend CSS"],
-      image: devis2,
-      github: "#",
-      demo: "#",
-    },
-    {
-      title: "Django Dashboard",
-      repo_name : "Simple-Crud-Django",
-      description:
-        "Dashboard back-office avec authentification, gestion des données et visualisation d’indicateurs clés.",
-      tech: ["Django", "Python", "SQLite"],
-      image: django,
-      github: "#",
-      demo: "#",
-    },
-  ];
 
   return (
     <section id="projects" className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32 text-white">
@@ -92,7 +25,9 @@ export default function Projects() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            const TypeIcon = project.type;
+            return (
             <motion.article
               key={project.title + index}
               initial={{ opacity: 0, y: 24 }}
@@ -112,62 +47,87 @@ export default function Projects() {
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent transition-opacity duration-300 group-hover/image:opacity-100" />
                 <div className="pointer-events-none absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100" />
-                <span className="absolute top-4 left-4 z-10 rounded-full border border-white/20 bg-black/35 px-3 py-1 text-xs font-medium tracking-wide text-white/90 backdrop-blur-sm">
-                  {String(index + 1).padStart(2, "0")}
+                <span className="absolute top-4 left-4 z-10 rounded-full border border-white/20 bg-black/35 px-5 py-4 text-xs font-medium tracking-wide text-white/90 backdrop-blur-sm">
+                  {<TypeIcon />}
                 </span>
-                <div className="pointer-events-none absolute inset-x-0 bottom-4 z-10 flex justify-center gap-5 opacity-0 translate-y-2 transition-all duration-300 group-hover/image:opacity-100 group-hover/image:translate-y-0">
+                <div className="pointer-events-none absolute inset-x-0 bottom-4 z-10 flex justify-end gap-2 opacity-0 translate-y-2 transition-all duration-300 group-hover/image:opacity-100 group-hover/image:translate-y-0">
                   <GitHubStarsButtonDemo
                     variant={project.github}
-                    size="sm"
+                    size="lg"
                     repo={project.repo_name}
                     className="pointer-events-auto"
                   />
-                  <a
-                      href={project.github}
-                      target={project.github !== "#" ? "_blank" : undefined}
-                      rel={project.github !== "#" ? "noreferrer" : undefined}
-                      className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs sm:text-sm text-white/75 hover:text-white hover:border-white/30 transition"
-                    >
-                      GitHub
-                    </a>
+                  {project.demo !== "#" ? (
                     <a
                       href={project.demo}
-                      target={project.demo !== "#" ? "_blank" : undefined}
-                      rel={project.demo !== "#" ? "noreferrer" : undefined}
-                      className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs sm:text-sm text-white/75 hover:text-white hover:border-white/30 transition"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-200/25 bg-slate-900/75 text-cyan-100/90 shadow-[0_6px_24px_rgba(6,182,212,0.16)] backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:border-cyan-200/45 hover:bg-slate-800/80 hover:text-cyan-50 hover:shadow-[0_10px_30px_rgba(6,182,212,0.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
                     >
-                      Live
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        className="h-5 w-5 transition-transform duration-200 hover:rotate-6"
+                      >
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <path d="M15 3h6v6" />
+                        <path d="M10 14L21 3" />
+                      </svg>
                     </a>
+                  ) : (
+                    <span className="group/deploy relative inline-flex">
+                      <span className="pointer-events-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/20 bg-black/45 text-white/80 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10 hover:text-white">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          className="w-5 h-5"
+                        >
+                          <path d="M12 6v6l4 2" />
+                          <circle cx="12" cy="12" r="9" />
+                        </svg>
+                      </span>
+                      <span className="pointer-events-none absolute bottom-full right-0 mb-2 inline-flex items-center gap-2 whitespace-nowrap rounded-xl border border-cyan-200/25 bg-slate-900/90 px-3.5 py-2 text-[11px] font-medium tracking-wide text-cyan-100 shadow-[0_8px_30px_rgba(6,182,212,0.22)] backdrop-blur-md opacity-0 translate-y-1 scale-95 transition-all duration-200 group-hover/deploy:opacity-100 group-hover/deploy:translate-y-0 group-hover/deploy:scale-100">
+                        <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 animate-pulse" />
+                        Working on deployment
+                      </span>
+                    </span>
+                  )}
                 </div>
               </div>
 
               <div className="p-6 md:p-7">
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-white/95">{project.title}</h3>
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <span className="text-[11px] sm:text-xs tracking-[0.24em] text-white/45 uppercase">
+                    {project.category || "Full-Stack"}
+                  </span>
 
-                  <div className="flex items-center gap-3">
-                    
-                    
+                  <div className="flex flex-wrap justify-end gap-2">
+                    {project.tech.map((item, i) => (
+                      <span
+                        key={i}
+                        className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] sm:text-xs uppercase tracking-wide text-white/75"
+                      >
+                        {item}
+                      </span>
+                    ))}
                   </div>
                 </div>
+
+                <h3 className="mb-4 text-xl sm:text-2xl font-semibold text-white/95">{project.title}</h3>
 
                 <p className="text-white/65 leading-relaxed mb-5 text-sm sm:text-base">
                   {project.description}
                 </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((item, i) => (
-                    <span
-                      key={i}
-                      className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs sm:text-sm text-white/80"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
               </div>
             </motion.article>
-          ))}
+            );
+          })}
         </div>
       </motion.div>
     </section>

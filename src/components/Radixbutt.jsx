@@ -6,6 +6,7 @@ export function RadixTooltipDemo({
   align = "center",
   alignOffset = 0,
   followCursor,
+  tooltipText,
   children,
 }) {
   const triggerRef = useRef(null)
@@ -14,44 +15,24 @@ export function RadixTooltipDemo({
   const [typedLength, setTypedLength] = useState(0)
 
   const terminalSegments = useMemo(
-  () => [
-    { text: "baha@dev:~$ ", className: "text-green-400" },
-    { text: "sudo", className: "text-red-400" },
-    { text: " ", className: "text-gray-200" },
-    { text: "apt", className: "text-cyan-300" },
-    { text: " ", className: "text-gray-200" },
-    { text: "install", className: "text-violet-300" },
-    { text: " ", className: "text-gray-200" },
-    { text: "react php python mysql", className: "text-emerald-300" },
-
-    { text: "\n\n", className: "text-gray-200" },
-
-    { text: "[sudo] password for baha: ", className: "text-yellow-400" },
-    { text: "********", className: "text-gray-300" },
-
-    { text: "\n\n", className: "text-gray-200" },
-
-    { text: "Reading package lists... Done", className: "text-gray-400" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "Building dependency tree... Done", className: "text-gray-400" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "Installing packages...", className: "text-blue-300" },
-
-    { text: "\n", className: "text-gray-200" },
-    { text: "✔ react", className: "text-cyan-200" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "✔ php", className: "text-cyan-200" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "✔ python", className: "text-cyan-200" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "✔ mysql", className: "text-cyan-200" },
-
-    { text: "\n\n", className: "text-gray-200" },
-
-    { text: "Done. System ready ", className: "text-white" },
-  ],
-  []
-);
+    () => [
+      { text: "> ", className: "text-gray-400" },
+      { text: "npm", className: "text-cyan-300" },
+      { text: " ", className: "text-gray-200" },
+      { text: "install", className: "text-violet-300" },
+      { text: " ", className: "text-gray-200" },
+      { text: "@baha/skills", className: "text-emerald-300" },
+      { text: "\n\n", className: "text-gray-200" },
+      { text: "✓ Installing packages...", className: "text-green-300" },
+      { text: "\n", className: "text-gray-200" },
+      { text: "+ react + php + python", className: "text-cyan-200" },
+      { text: "\n", className: "text-gray-200" },
+      { text: "+ mysql + django", className: "text-cyan-200" },
+      { text: "\n", className: "text-gray-200" },
+      { text: "Ready. 🚀", className: "text-gray-100" },
+    ],
+    []
+  )
 
   const totalChars = useMemo(
     () => terminalSegments.reduce((sum, segment) => sum + segment.text.length, 0),
@@ -227,9 +208,15 @@ export function RadixTooltipDemo({
               }
             />
             <div className="relative whitespace-pre-wrap font-mono leading-5 tracking-[0.01em]">
-              {typedSegments}
-              {open && typedLength >= totalChars && (
-                <span className="ml-0.5 inline-block h-4 w-[1px] animate-pulse bg-cyan-200 align-middle" />
+              {tooltipText ? (
+                <span className="font-medium text-gray-100">{tooltipText}</span>
+              ) : (
+                <>
+                  {typedSegments}
+                  {open && typedLength >= totalChars && (
+                    <span className="ml-0.5 inline-block h-4 w-[1px] animate-pulse bg-cyan-200 align-middle" />
+                  )}
+                </>
               )}
             </div>
           </div>

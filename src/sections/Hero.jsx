@@ -213,8 +213,8 @@ export default function Hero() {
               </motion.a>
             
             </motion.div>
-            <hr className="mx-auto mt-10 sm:mt-16 w-full max-w-md sm:max-w-4xl border-white/10" />
-            <div className="mt-4 flex flex-wrap justify-center gap-2 sm:gap-[2px] text-white">
+            
+            <div className="mt-30 flex flex-wrap justify-center gap-2 sm:gap-[2px] text-white">
               <a href="https://github.com/bahasalah255" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

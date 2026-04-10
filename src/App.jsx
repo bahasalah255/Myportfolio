@@ -8,6 +8,7 @@ import Journey from './sections/Journey'
 import ScrollProgressBar from './components/ScrollProgressBar'
 import Projects from './sections/Projects'
 import AmbientTrustText from './components/ui/AmbientTrustText'
+import Work from './sections/Work'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -31,6 +32,7 @@ function App() {
       <Skills/>
       <Journey/>
       <Projects/>
+      <Work/>
     </>
   )
 }

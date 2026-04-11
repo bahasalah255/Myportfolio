@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Hero from './sections/Hero'
 import LightWavesBackground from './sections/Background'
 import Loader from './sections/Loader'
@@ -13,13 +13,8 @@ import Work from './sections/Work'
 function App() {
   const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1800)
-    return () => clearTimeout(timer)
-  }, [])
-
   if (isLoading) {
-    return <Loader />
+    return <Loader onComplete={() => setIsLoading(false)} />
   }
 
   return (

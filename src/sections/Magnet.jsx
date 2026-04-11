@@ -16,10 +16,7 @@ const Magnet = ({
   const magnetRef = useRef(null);
 
   useEffect(() => {
-    if (disabled) {
-      setPosition({ x: 0, y: 0 });
-      return;
-    }
+    if (disabled) return;
 
     const handleMouseMove = e => {
       if (!magnetRef.current) return;
@@ -49,7 +46,7 @@ const Magnet = ({
     };
   }, [padding, disabled, magnetStrength]);
 
-  const transitionStyle = isActive ? activeTransition : inactiveTransition;
+  const transitionStyle = disabled ? inactiveTransition : isActive ? activeTransition : inactiveTransition;
 
   return (
     <div

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Camera, Mesh, Plane, Program, Renderer, Texture, Transform } from 'ogl';
 import { useEffect, useRef } from 'react';
 

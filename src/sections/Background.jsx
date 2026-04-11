@@ -14,7 +14,7 @@ export function LightWavesBackground({
   const containerRef = useRef(null)
   const wavesRef = useRef([])
   const animationRef = useRef()
-  const startTimeRef = useRef(Date.now())
+  const startTimeRef = useRef(0)
 
   const initWaves = useCallback((height) => {
     const waves = []
@@ -48,6 +48,8 @@ export function LightWavesBackground({
     const canvas = canvasRef.current
     const container = containerRef.current
     if (!canvas || !container) return
+
+    startTimeRef.current = Date.now()
 
     const ctx = canvas.getContext("2d")
     if (!ctx) return

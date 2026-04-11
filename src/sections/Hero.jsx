@@ -1,5 +1,6 @@
 'use client'
 
+/* eslint-disable no-unused-vars */
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
@@ -172,12 +173,12 @@ export default function Hero() {
       <div className="flex flex-col gap-7 lg:flex-row">
         <div className="w-full py-20 sm:py-40 lg:py-56">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20 mr-20">
+            <div className="relative inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm/6 text-gray-400 ring-1 ring-white/10 hover:ring-white/20 mr-20">
               <span class="relative flex h-2.5 w-2.5">
     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
     <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500"></span>
   </span>
-             <span class="text-purple-200 text-sm tracking-wide">
+             <span class="text-purple-200 text-xs sm:text-sm tracking-[0.18em] uppercase">
     Disponible — open to work
   </span>
               
@@ -214,8 +215,8 @@ export default function Hero() {
             
             </motion.div>
             
-            <div className="mt-30 flex flex-wrap justify-center gap-2 sm:gap-[2px] text-white">
-              <a href="https://github.com/bahasalah255" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
+            <div className="mt-24 flex flex-wrap justify-center gap-2 sm:gap-3 text-white">
+              <a href="https://github.com/bahasalah255" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-[11px] sm:text-sm text-gray-400 hover:text-white transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -226,7 +227,7 @@ export default function Hero() {
                 </svg>
                 <span>GitHub</span>
               </a>
-              <a href="https://www.linkedin.com/in/baha-salaheddine-844201339/" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/baha-salaheddine-844201339/" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-[11px] sm:text-sm text-gray-400 hover:text-white transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -237,7 +238,7 @@ export default function Hero() {
                 </svg>
                 <span>LinkedIn</span>
               </a>
-              <a href="mailto:salaheddinebaha32@gmail.com" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-xs sm:text-sm text-gray-400 hover:text-white transition-colors">
+              <a href="mailto:salaheddinebaha32@gmail.com" target='_blank' className="inline-flex items-center gap-1.5 px-2 py-1 text-[11px] sm:text-sm text-gray-400 hover:text-white transition-colors">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -254,10 +255,15 @@ export default function Hero() {
                 <span>Email</span>
               </a>
             </div>
-            <div className="mt-6 flex flex-col items-center gap-2 text-gray-300">
-              <span className="h-12 w-px bg-white/30" />
-               <span className="text-[10px] uppercase tracking-[0.35em]">Scroll</span>
-            </div>
+           <div className="flex flex-col items-center gap-3">
+  <div className="w-6 h-10 rounded-full border border-white/15 flex justify-center pt-2 bg-white/[0.02] backdrop-blur-sm">
+    <span className="w-1.5 h-1.5 rounded-full bg-white/60 animate-bounce"></span>
+  </div>
+
+  <span className="text-[10px] tracking-[0.35em] uppercase text-white/35">
+    Scroll
+  </span>
+</div>
              
             </motion.div>
         </div>

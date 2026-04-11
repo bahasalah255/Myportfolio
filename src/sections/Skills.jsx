@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { RadialIntro } from "@/components/animate-ui/components/community/radial-intro";
 import Orbit from '@/components/ui/Orbit'
@@ -18,20 +19,20 @@ export default function Skills() {
       transition={{ duration: 0.8, ease: "easeOut" }}>
         <div className="flex justify-center flex-col gap-1">
        <p className="mt-2 text-4xl sm:text-7xl font-bold tracking-tight text-white text-balance leading-none"><span className="text-white">My Tech </span><span className="text-gray-500">Stack</span></p>
-       <p className="mt-4 text-gray-300 max-w-2xl  text-lg leading-relaxed">
+       <p className="mt-3 max-w-2xl text-base sm:text-lg leading-relaxed text-gray-300">
   A curated set of technologies I use to build modern, scalable, and high-performance web applications.
 </p>
        </div>
-       <div className="grid grid-cols-1 lg:grid-cols-2 gap-30">
+       <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
        <RadialIntro orbitItems={ITEMS}/>
       
-       <div className="relative mt-12 flex h-[500px] w-full items-center justify-center overflow-hidden rounded-3xl">
+       <div className="relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-3xl">
   <div className="absolute left-1/2 top-6 z-10 -translate-x-1/2 rounded-2xl border border-white/15 bg-white/5 px-4 py-2 backdrop-blur-md shadow-lg shadow-black/20">
     <div className="flex items-center gap-2.5">
       <span className="h-2 w-2 rounded-full bg-white/80" />
       <div className="leading-tight">
-        <p className="text-[10px] uppercase tracking-[0.2em] text-white/60">Visualization</p>
-        <p className="text-sm font-semibold text-white/95">Tools Orbit</p>
+        <p className="text-[10px] uppercase tracking-[0.24em] text-white/55">Visualization</p>
+        <p className="text-sm font-semibold text-white/90">Tools Orbit</p>
       </div>
     </div>
   </div>

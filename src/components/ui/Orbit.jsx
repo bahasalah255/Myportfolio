@@ -1,6 +1,8 @@
 // Component created by Dominik Koch
 // https://x.com/dominikkoch
 
+/* eslint-disable no-unused-vars */
+
 import { useMemo, useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform, animate } from 'motion/react';
 

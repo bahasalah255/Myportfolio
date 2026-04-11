@@ -204,11 +204,11 @@ export default function Hero() {
               <motion.a
                 href="#projects"
                 variants={buttonItemVariants}
-                className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-8 sm:px-12 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-indigo-900/35 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:from-indigo-400 hover:to-violet-400 hover:shadow-[0_18px_40px_rgba(99,102,241,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+                className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-8 sm:px-12 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-indigo-900/35 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:from-indigo-400 hover:to-violet-600 hover:shadow-[0_18px_40px_rgba(99,102,241,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
                View Projects <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </motion.a>
-              <motion.a href="#" variants={buttonItemVariants} className="group inline-flex w-full sm:w-auto justify-center text-sm/6 font-semibold text-white">
+              <motion.a href="#contact" variants={buttonItemVariants} className="group inline-flex w-full sm:w-auto justify-center text-sm/6 font-semibold text-white">
         <LiquidButtonDemo size="lg">Let's Talk </LiquidButtonDemo>       
 
               </motion.a>

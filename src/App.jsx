@@ -9,6 +9,7 @@ import ScrollProgressBar from './components/ScrollProgressBar'
 import Projects from './sections/Projects'
 import AmbientTrustText from './components/ui/AmbientTrustText'
 import Work from './sections/Work'
+import Loop from './sections/Loop'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -24,6 +25,7 @@ function App() {
       <Journey/>
       <Projects/>
       <Work/>
+      <Loop/>
       {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
     </>
   )

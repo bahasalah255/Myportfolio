@@ -13,10 +13,6 @@ import Work from './sections/Work'
 function App() {
   const [isLoading, setIsLoading] = useState(true)
 
-  if (isLoading) {
-    return <Loader onComplete={() => setIsLoading(false)} />
-  }
-
   return (
     <>
       <ScrollProgressBar />
@@ -28,6 +24,7 @@ function App() {
       <Journey/>
       <Projects/>
       <Work/>
+      {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
     </>
   )
 }

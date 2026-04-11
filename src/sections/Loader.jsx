@@ -4,7 +4,6 @@ export default function Loader({ onComplete }) {
   const commandText = "open baha.portfolio"
   const welcomeText = "welcome."
 
-  const [isVisible, setIsVisible] = useState(false)
   const [isFadingOut, setIsFadingOut] = useState(false)
   const [showWelcome, setShowWelcome] = useState(false)
   const [typedCommand, setTypedCommand] = useState("")
@@ -16,8 +15,6 @@ export default function Loader({ onComplete }) {
       const id = setTimeout(callback, delay)
       timeouts.push(id)
     }
-
-    setIsVisible(true)
 
     const charDelay = 45
     const firstStart = 140
@@ -48,7 +45,7 @@ export default function Loader({ onComplete }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[999] flex items-center justify-center bg-[radial-gradient(circle_at_top,rgba(52,211,153,0.06),transparent_35%),radial-gradient(circle_at_bottom,rgba(168,85,247,0.06),transparent_35%),linear-gradient(180deg,#020617,#01030a)] transition-opacity duration-500 ${isVisible && !isFadingOut ? "opacity-100" : "opacity-0"}`}
+      className={`fixed inset-0 z-[999] flex items-center justify-center bg-[radial-gradient(circle_at_top,rgba(52,211,153,0.06),transparent_35%),radial-gradient(circle_at_bottom,rgba(168,85,247,0.06),transparent_35%),linear-gradient(180deg,#020617,#01030a)] transition-opacity duration-500 ${isFadingOut ? "opacity-0" : "opacity-100"}`}
     >
       <div className="w-full max-w-xl px-6 text-left font-mono">
         <div className="overflow-hidden rounded-2xl border border-emerald-300/15 bg-[#0b1118]/88 shadow-[0_0_50px_rgba(2,12,27,0.7),0_0_24px_rgba(52,211,153,0.08)] backdrop-blur-md">

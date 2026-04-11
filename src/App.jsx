@@ -10,6 +10,8 @@ import Projects from './sections/Projects'
 import AmbientTrustText from './components/ui/AmbientTrustText'
 import Work from './sections/Work'
 import Loop from './sections/Loop'
+import Contact from './sections/Contact'
+import Footer from './sections/Footer'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -26,6 +28,8 @@ function App() {
       <Projects/>
       <Work/>
       <Loop/>
+      <Contact/>
+      <Footer/>
       {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
     </>
   )

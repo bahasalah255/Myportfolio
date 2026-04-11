@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useInView } from "framer-motion";
 

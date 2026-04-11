@@ -46,6 +46,7 @@ export function GitHubStarsButton({
           return
         }
       } catch {
+        // Ignore malformed cached data.
       }
     }
 

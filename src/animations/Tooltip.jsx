@@ -9,46 +9,66 @@ export function RadixTooltipDemo({
   children,
 }) {
   const triggerRef = useRef(null)
+  const [triggerRect, setTriggerRect] = useState(null)
   const [open, setOpen] = useState(false)
   const [cursor, setCursor] = useState({ x: 0, y: 0 })
   const [typedLength, setTypedLength] = useState(0)
 
-  const terminalSegments = useMemo(
+ const terminalSegments = useMemo(
   () => [
     { text: "baha@dev:~$ ", className: "text-green-400" },
-    { text: "sudo", className: "text-red-400" },
+    { text: "init", className: "text-cyan-300" },
     { text: " ", className: "text-gray-200" },
-    { text: "apt", className: "text-cyan-300" },
-    { text: " ", className: "text-gray-200" },
-    { text: "install", className: "text-violet-300" },
-    { text: " ", className: "text-gray-200" },
-    { text: "react php python mysql", className: "text-emerald-300" },
+    { text: "--portfolio", className: "text-violet-300" },
 
     { text: "\n\n", className: "text-gray-200" },
 
-    { text: "[sudo] password for baha: ", className: "text-yellow-400" },
-    { text: "********", className: "text-gray-300" },
+    { text: " Booting system...", className: "text-gray-400" },
+    { text: "\n", className: "text-gray-200" },
+    { text: "✔ Loading modules", className: "text-emerald-400" },
+    { text: "\n", className: "text-gray-200" },
+    { text: "✔ Initializing UI engine", className: "text-emerald-400" },
 
     { text: "\n\n", className: "text-gray-200" },
 
-    { text: "Reading package lists... Done", className: "text-gray-400" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "Building dependency tree... Done", className: "text-gray-400" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "Installing packages...", className: "text-blue-300" },
+    { text: "baha@dev:~$ ", className: "text-green-400" },
+    { text: "deploy", className: "text-blue-300" },
+    { text: " ", className: "text-gray-200" },
+    { text: "skills", className: "text-cyan-200" },
 
     { text: "\n", className: "text-gray-200" },
-    { text: "✔ react", className: "text-cyan-200" },
+    { text: "→ React ✓", className: "text-emerald-300" },
     { text: "\n", className: "text-gray-200" },
-    { text: "✔ php", className: "text-cyan-200" },
+    { text: "→ Laravel ✓", className: "text-emerald-300" },
     { text: "\n", className: "text-gray-200" },
-    { text: "✔ python", className: "text-cyan-200" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "✔ mysql", className: "text-cyan-200" },
+    { text: "→ MySQL ✓", className: "text-emerald-300" },
 
     { text: "\n\n", className: "text-gray-200" },
 
-    { text: "Done. System ready ", className: "text-white" },
+    { text: "baha@dev:~$ ", className: "text-green-400" },
+    { text: "run", className: "text-yellow-300" },
+    { text: " ", className: "text-gray-200" },
+    { text: "projects", className: "text-cyan-200" },
+
+    { text: "\n", className: "text-gray-200" },
+    { text: " Devis App launched", className: "text-cyan-300" },
+    { text: "\n", className: "text-gray-200" },
+    { text: " AutoFix system online", className: "text-cyan-300" },
+
+    { text: "\n\n", className: "text-gray-200" },
+
+    { text: "baha@dev:~$ ", className: "text-green-400" },
+    { text: "status", className: "text-pink-300" },
+
+    { text: "\n", className: "text-gray-200" },
+    { text: "✔ All systems operational", className: "text-emerald-400" },
+    { text: "\n", className: "text-gray-200" },
+    { text: "✔ Ready for collaboration", className: "text-emerald-400" },
+
+    { text: "\n\n", className: "text-gray-200" },
+
+    { text: "baha@dev:~$ ", className: "text-green-400" },
+    { text: "_", className: "animate-pulse text-white" },
   ],
   []
 );
@@ -59,10 +79,7 @@ export function RadixTooltipDemo({
   )
 
   useEffect(() => {
-    if (!open) {
-      setTypedLength(0)
-      return
-    }
+    if (!open) return
 
     const interval = setInterval(() => {
       setTypedLength((current) => {
@@ -77,9 +94,9 @@ export function RadixTooltipDemo({
     return () => clearInterval(interval)
   }, [open, totalChars])
 
-  const getTooltipStyle = useMemo(() => (currentSide) => {
+  const getTooltipStyle = (currentSide) => {
     const viewportPadding = 12
-    const triggerRect = triggerRef.current?.getBoundingClientRect()
+    const rect = triggerRect
 
     const viewportWidth = typeof window !== "undefined" ? window.innerWidth : 1200
     const tooltipWidth = Math.min(336, viewportWidth - viewportPadding * 2)
@@ -99,7 +116,7 @@ export function RadixTooltipDemo({
       }
     }
 
-    if (!triggerRect) {
+    if (!rect) {
       return {
         left: viewportPadding,
         top: sideOffset,
@@ -111,17 +128,17 @@ export function RadixTooltipDemo({
 
     const baseLeft =
       align === "start"
-        ? triggerRect.left + alignOffset
+        ? rect.left + alignOffset
         : align === "end"
-        ? triggerRect.right - tooltipWidth + alignOffset
-        : triggerRect.left + triggerRect.width / 2 - tooltipWidth / 2 + alignOffset
+        ? rect.right - tooltipWidth + alignOffset
+        : rect.left + rect.width / 2 - tooltipWidth / 2 + alignOffset
 
     const clampedLeft = Math.min(
       Math.max(baseLeft, viewportPadding),
       viewportWidth - tooltipWidth - viewportPadding
     )
 
-    const triggerCenterX = triggerRect.left + triggerRect.width / 2
+    const triggerCenterX = rect.left + rect.width / 2
     const arrowLeft = Math.min(
       Math.max(triggerCenterX - clampedLeft, 14),
       tooltipWidth - 14
@@ -132,13 +149,13 @@ export function RadixTooltipDemo({
     const isLeft = currentSide === "left"
 
     return {
-      left: isLeft ? triggerRect.left - sideOffset - tooltipWidth : clampedLeft,
+      left: isLeft ? rect.left - sideOffset - tooltipWidth : clampedLeft,
       top:
         isTop
-          ? triggerRect.top - sideOffset
+          ? rect.top - sideOffset
           : isBottom
-            ? triggerRect.bottom + sideOffset
-            : triggerRect.top + triggerRect.height / 2,
+            ? rect.bottom + sideOffset
+            : rect.top + rect.height / 2,
       width: tooltipWidth,
       "--arrow-left": `${arrowLeft}px`,
       transform:
@@ -150,7 +167,7 @@ export function RadixTooltipDemo({
               ? "translateY(-50%)"
               : "translateY(-50%)",
     }
-  }, [align, alignOffset, cursor.x, cursor.y, followCursor, sideOffset])
+  }
 
   const sides = side === "both" ? ["top", "bottom"] : [side]
 
@@ -160,8 +177,15 @@ export function RadixTooltipDemo({
     <div
       ref={triggerRef}
       className="relative inline-flex"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={() => {
+        setTypedLength(0)
+        setTriggerRect(triggerRef.current?.getBoundingClientRect() ?? null)
+        setOpen(true)
+      }}
+      onMouseLeave={() => {
+        setOpen(false)
+        setTypedLength(0)
+      }}
       onMouseMove={(event) => {
         if (!followCursor) return
         setCursor({ x: event.clientX, y: event.clientY })

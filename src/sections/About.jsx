@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import Magnet from './Magnet'
 
@@ -82,7 +83,7 @@ export default function About() {
 
               <motion.p
                 variants={paragraphVariants}
-                className="mt-7 max-w-2xl text-base sm:text-lg md:text-xl text-slate-300/95 leading-8 tracking-[0.01em]"
+                className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-slate-300/95 leading-8 tracking-[0.01em]"
               >
                 I’m a <span className="text-white font-medium">full-stack developer</span> based in Morocco,
                 focused on turning ideas into <span className="text-blue-300">real, usable digital products</span>.
@@ -119,10 +120,10 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
           >
-            <Magnet padding={80} disabled={false} magnetStrength={8}>
+            <Magnet padding={72} disabled={false} magnetStrength={8}>
               <div className="relative mx-auto w-full max-w-xl">
             <div className="rounded-3xl border border-white/10 bg-slate-900/70 p-4 sm:p-6 backdrop-blur-xl shadow-2xl">
-              <p className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-white/80">LIVE SNAPSHOT</p>
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-white/65 uppercase">LIVE SNAPSHOT</p>
 
               <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 px-4 py-5 sm:px-6 text-sm sm:text-base font-mono leading-8 text-white/90">
                 <div>
@@ -167,18 +168,18 @@ export default function About() {
 
               <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-white/70 text-sm">Focus</p>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Focus</p>
                   <p className="mt-1 text-lg font-semibold text-white">Web Apps</p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-white/70 text-sm">Mindset</p>
+                  <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Mindset</p>
                   <p className="mt-1 text-lg font-semibold text-white">Creative + Clean</p>
                 </div>
               </div>
             </div>
 
-            <div className="pointer-events-none absolute -left-4 -bottom-5 h-16 w-16 rounded-2xl border border-white/20 bg-white/5" />
-            <div className="pointer-events-none absolute -right-3 top-14 h-14 w-14 rounded-2xl border border-white/20 bg-white/5" />
+            <div className="pointer-events-none absolute -left-4 -bottom-5 h-16 w-16 rounded-2xl border border-white/15 bg-white/5" />
+            <div className="pointer-events-none absolute -right-3 top-14 h-14 w-14 rounded-2xl border border-white/15 bg-white/5" />
           </div>
             </Magnet>
           </motion.div>

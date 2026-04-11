@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import GitHubStarsButtonDemo from "../components/ui/ButtonGithub";
 import projects from '../data/projects.js'
@@ -12,7 +13,7 @@ export default function Projects() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="flex flex-col gap-3">
-          <span className="w-fit rounded-full border border-white/15 bg-white/5 px-4 py-1 text-sm font-medium text-white/80">
+          <span className="w-fit rounded-full border border-white/15 bg-white/5 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-white/65">
             Selected Work
           </span>
           <p className="text-4xl sm:text-7xl font-bold tracking-tight text-white text-balance leading-none">
@@ -34,7 +35,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm hover:border-white/25 hover:bg-white/[0.06] transition-all duration-300"
+              className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]"
             >
               <div className="group/image relative overflow-hidden bg-slate-950/50">
                 <img
@@ -47,7 +48,7 @@ export default function Projects() {
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent transition-opacity duration-300 group-hover/image:opacity-100" />
                 <div className="pointer-events-none absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100" />
-                <span className="absolute top-4 left-4 z-10 rounded-full border border-white/20 bg-black/35 px-5 py-4 text-xs font-medium tracking-wide text-white/90 backdrop-blur-sm">
+                <span className="absolute top-4 left-4 z-10 rounded-full border border-white/20 bg-black/35 px-4 py-3 text-[11px] font-medium tracking-wide text-white/80 backdrop-blur-sm">
                   {<TypeIcon />}
                 </span>
                 <div className="pointer-events-none absolute inset-x-0 bottom-4 z-10 flex justify-end gap-2 opacity-0 translate-y-2 transition-all duration-300 group-hover/image:opacity-100 group-hover/image:translate-y-0">
@@ -103,7 +104,7 @@ export default function Projects() {
 
               <div className="p-6 md:p-7">
                 <div className="mb-4 flex items-start justify-between gap-4">
-                  <span className="text-[11px] sm:text-xs tracking-[0.24em] text-white/45 uppercase">
+                  <span className="text-[10px] sm:text-xs tracking-[0.26em] text-white/40 uppercase">
                     {project.category || "Full-Stack"}
                   </span>
 
@@ -111,7 +112,7 @@ export default function Projects() {
                     {project.tech.map((item, i) => (
                       <span
                         key={i}
-                        className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] sm:text-xs uppercase tracking-wide text-white/75"
+                        className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] sm:text-[11px] uppercase tracking-wide text-white/70"
                       >
                         {item}
                       </span>

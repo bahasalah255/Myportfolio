@@ -19,9 +19,9 @@ export default function Footer(){
 
   {/* RIGHT */}
   <div className="flex items-center gap-6 text-sm text-white/60">
-    <a href="https://github.com/bahasalah255" className="hover:text-white transition-colors">GitHub</a>
-    <a href="https://www.linkedin.com/in/baha-salaheddine-844201339/" className="hover:text-white transition-colors">LinkedIn</a>
-    <a href="#" className="hover:text-white transition-colors">Email</a>
+    <a href="https://github.com/bahasalah255" target="_blank" className="hover:text-white transition-colors">GitHub</a>
+    <a href="https://www.linkedin.com/in/baha-salaheddine-844201339/" target="_blank" className="hover:text-white transition-colors">LinkedIn</a>
+    <a href="mailto:salaheddinebaha32@gmail.com" target="_blank" className="hover:text-white transition-colors">Email</a>
   </div>
 
 </footer>

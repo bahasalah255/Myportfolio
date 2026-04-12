@@ -65,6 +65,8 @@ export default function Projects() {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => {
             const TypeIcon = project.type;
+            const imageScale = typeof project.imageScale === 'number' ? project.imageScale : 1;
+            const imagePosition = project.imagePosition || 'center';
             return (
             <motion.article
               key={project.title + index}
@@ -75,14 +77,17 @@ export default function Projects() {
               className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]"
             >
               <div className="group/image relative overflow-hidden bg-slate-950/50">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  loading="lazy"
-                  decoding="async"
-                  draggable={false}
-                  className="w-full aspect-[16/10] object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                />
+                <div className="transition-transform duration-500 ease-out group-hover/image:scale-[1.03]">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    draggable={false}
+                    className="w-full aspect-[16/10] object-cover"
+                    style={{ objectPosition: imagePosition, transform: `scale(${imageScale})` }}
+                  />
+                </div>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent transition-opacity duration-300 group-hover/image:opacity-100" />
                 <div className="pointer-events-none absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100" />
                 <span className="absolute top-4 left-4 z-10 rounded-full border border-white/20 bg-black/35 px-4 py-3 text-[11px] font-medium tracking-wide text-white/80 backdrop-blur-sm">

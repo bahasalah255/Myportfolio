@@ -6,6 +6,7 @@ import devis2 from '../assets/images/devis2.png'
 import django from '../assets/images/django.png'
 import MonitorIcon from './Web.jsx'
 import Mobile from './Mobile.jsx'
+import image from '../assets/images/image.png'
 const projects = [
     {
       title: "Devis App",
@@ -14,7 +15,9 @@ const projects = [
       description:
         "Devis-App is a mobile application for managing and generating quotes, with a Laravel backend and an Expo frontend. It integrates AI SMARTPASTE to automatically fill in quote lines from text, while offering a local fallback if AI credits are exhausted.",
       tech: ["React Native", "Laravel", "MySQL"],
-      image: devis,
+      image: image,
+      imageScale: 0.99,
+      imagePosition: "50% 29%",
       github: "https://github.com/bahasalah255/devis-app",
       demo: "#",
       type : Mobile

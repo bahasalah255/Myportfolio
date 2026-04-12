@@ -1,8 +1,25 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
+import { useMemo, useState } from "react";
 import GitHubStarsButtonDemo from "../components/ui/ButtonGithub";
 import projects from '../data/projects.js'
 export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState('all');
+
+  const filters = [
+    { key: 'all', label: 'All' },
+    { key: 'web', label: 'Web' },
+    { key: 'mobile', label: 'Mobile' },
+    { key: 'dashboard', label: 'Dashboard' },
+  ];
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'all') return projects;
+
+    return projects.filter((project) =>
+      (project.category || '').toLowerCase().includes(activeFilter)
+    );
+  }, [activeFilter]);
 
   return (
     <section id="projects" className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32 text-white">
@@ -20,13 +37,33 @@ export default function Projects() {
             <span className="text-white">Things I </span>
             <span className="text-gray-500">Built</span>
           </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            {filters.map((filter) => {
+              const isActive = activeFilter === filter.key;
+
+              return (
+                <button
+                  key={filter.key}
+                  type="button"
+                  onClick={() => setActiveFilter(filter.key)}
+                  className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
+                    isActive
+                      ? 'border-white/30 bg-white/10 text-white'
+                      : 'border-white/10 bg-white/5 text-white/60 hover:bg-white/10 hover:text-white/90'
+                  }`}
+                >
+                  {filter.label}
+                </button>
+              );
+            })}
+          </div>
           <p className="text-gray-300 max-w-2xl text-base sm:text-lg leading-relaxed">
             A selection of projects that highlight my approach to clean UI, solid backend logic, and practical product thinking.
           </p>
         </div>
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => {
+          {filteredProjects.map((project, index) => {
             const TypeIcon = project.type;
             return (
             <motion.article

@@ -1,7 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap");
 @import "tailwindcss";
+
+:root {
+	--brand-bg: #07131a;
+	--brand-bg-soft: #10242d;
+	--brand-surface: rgba(16, 36, 45, 0.72);
+	--brand-primary: #19b1b3;
+	--brand-primary-strong: #0f8f96;
+	--brand-secondary: #ff7a59;
+	--brand-text: #f3fafb;
+	--brand-muted: #98b2bc;
+	--brand-border: rgba(243, 250, 251, 0.16);
+	--brand-shadow: 0 20px 50px rgba(25, 177, 179, 0.22);
+}
+
+* {
+	box-sizing: border-box;
+}
 
 html {
 	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	font-family: "Sora", sans-serif;
+	background:
+		radial-gradient(circle at 12% 8%, rgba(25, 177, 179, 0.2), transparent 35%),
+		radial-gradient(circle at 85% 15%, rgba(255, 122, 89, 0.2), transparent 30%),
+		linear-gradient(150deg, var(--brand-bg) 0%, #0d2029 45%, #060d12 100%);
+	color: var(--brand-text);
+	min-height: 100vh;
+}
+
+#root {
+	min-height: 100vh;
+	isolation: isolate;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: "Space Grotesk", sans-serif;
+	letter-spacing: -0.02em;
+}
+
+::selection {
+	background: rgba(25, 177, 179, 0.35);
+	color: var(--brand-text);
+}
+
+.brand-hero-surface {
+	background:
+		radial-gradient(circle at 20% 10%, rgba(25, 177, 179, 0.24), transparent 40%),
+		radial-gradient(circle at 78% 22%, rgba(255, 122, 89, 0.2), transparent 45%),
+		linear-gradient(130deg, #0b1c24 0%, #16303b 42%, #0a151b 100%);
+}
+
+.brand-top-blur {
+	background: linear-gradient(to bottom, rgba(7, 19, 26, 0.86), transparent);
+	backdrop-filter: saturate(130%) blur(2px);
+}
+
+.brand-primary-btn {
+	background-image: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+	box-shadow: var(--brand-shadow);
+}
+
+.brand-primary-btn:hover {
+	background-image: linear-gradient(135deg, #27c2c3, #ff8f73);
+}
+
+.brand-pill-btn {
+	background: rgba(25, 177, 179, 0.18);
+	border: 1px solid rgba(25, 177, 179, 0.35);
+	color: var(--brand-text);
+}
+
+.brand-pill-btn:hover {
+	background: rgba(25, 177, 179, 0.28);
 }
 
 @keyframes loading {

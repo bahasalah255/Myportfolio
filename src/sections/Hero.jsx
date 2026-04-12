@@ -194,7 +194,7 @@ export default function Hero() {
           >
            <motion.h1 variants={titleVariants} className="text-5xl sm:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[0.95] text-balance">
   <span className='text-white'>BAHA</span>{' '}
-  <span className='block sm:inline text-gray-500'>SALAH EDDINE.</span>
+  <span className='block sm:inline text-[#7faab8]'>SALAH EDDINE.</span>
 </motion.h1>
             <motion.p variants={paragraphVariants} className="mx-auto mt-4 max-w-2xl px-2 text-base sm:text-[1.25rem] font-medium text-pretty text-gray-400 leading-7 sm:leading-8">
              20-year-old <span className='text-white'>Full-Stack Developer</span> from Morocco. Passionate about building fast, scalable web applications.<br></br>

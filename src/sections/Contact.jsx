@@ -16,7 +16,7 @@ export default function Contact(){
               <span>code</span>{" "}
               <span className="text-white/65">it.</span>
             </p>
-            <a className="group mt-12 inline-flex items-center gap-2 rounded-full bg-white px-10 py-4 text-base font-medium text-black transition-all duration-300 hover:shadow-[0_8px_24px_rgba(255,255,255,0.15)] hover:scale-105 cursor-pointer">
+            <a href="mailto:salaheddinebaha32@gmail.com" className="group mt-12 inline-flex items-center gap-2 rounded-full bg-white px-10 py-4 text-base font-medium text-black transition-all duration-300 hover:shadow-[0_8px_24px_rgba(255,255,255,0.15)] hover:scale-105 cursor-pointer">
               Start a Project
               <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
@@ -38,9 +38,9 @@ export default function Contact(){
       SOCIALS
     </p>
     <div className="flex items-center justify-center sm:justify-start gap-4 text-white/80">
-      <a href="https://github.com/bahasalah255" className="hover:text-white transition-colors">GitHub</a>
-      <a href="https://www.linkedin.com/in/baha-salaheddine-844201339/" className="hover:text-white transition-colors">LinkedIn</a>
-      <a href="https://x.com/salahbaha782215" className="hover:text-white transition-colors">X</a>
+      <a href="https://github.com/bahasalah255" target="_blank" className="hover:text-white transition-colors">GitHub</a>
+      <a href="https://www.linkedin.com/in/baha-salaheddine-844201339/" target="_blank" className="hover:text-white transition-colors">LinkedIn</a>
+      <a href="https://x.com/salahbaha782215" target="_blank" className="hover:text-white transition-colors">X</a>
     </div>
   </div>
 

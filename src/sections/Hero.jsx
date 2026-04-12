@@ -74,7 +74,7 @@ export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div id="home"  className="brand-hero-surface overflow-hidden">
+    <div id="home" className="overflow-hidden" >
       <header className="fixed inset-x-0 top-0 z-50 bg-gradient-to-b from-gray-900/80 to-gray-900/0">
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1">

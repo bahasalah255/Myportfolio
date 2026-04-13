@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import {ITEMS1 , ITEMS } from '../data/skills'
 
 
-export default function Skills() {
+export default function Skills({ reduceMotion = false }) {
     return(
       
       <>
@@ -24,7 +24,20 @@ export default function Skills() {
 </p>
        </div>
        <div className="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-       <RadialIntro orbitItems={ITEMS}/>
+       {reduceMotion ? (
+         <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-5 sm:p-6 backdrop-blur-sm">
+           <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/55">Skills</p>
+           <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+             {ITEMS.map((item) => (
+               <div key={item.id} className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-center">
+                 <p className="text-sm font-semibold text-white/90">{item.name}</p>
+               </div>
+             ))}
+           </div>
+         </div>
+       ) : (
+         <RadialIntro orbitItems={ITEMS}/>
+       )}
       
        <div className="relative flex h-[500px] w-full items-center justify-center overflow-hidden rounded-3xl">
   <div className="absolute left-1/2 top-6 z-10 -translate-x-1/2 rounded-2xl border border-white/15 bg-white/5 px-4 py-2 backdrop-blur-md shadow-lg shadow-black/20">
@@ -36,25 +49,32 @@ export default function Skills() {
       </div>
     </div>
   </div>
-  <Orbit
-    images={ITEMS1.map(item => item.src)}
-    shape="ellipse"
-    baseWidth={500}
-    radiusX={190}
-    radiusY={120}
-    itemSize={64}
-    duration={30}
-    direction="normal"
-    fill={true}
-    rotation={0}
-    responsive={true}
-    width={500}
-    height={500}
-    className="mx-auto"
-    showPath={true}
-    pathColor="rgba(255, 255, 255, 0.2)"
-    pathWidth={1}
-  />
+  {!reduceMotion && (
+    <Orbit
+      images={ITEMS1.map(item => item.src)}
+      shape="ellipse"
+      baseWidth={500}
+      radiusX={190}
+      radiusY={120}
+      itemSize={64}
+      duration={30}
+      direction="normal"
+      fill={true}
+      rotation={0}
+      responsive={true}
+      width={500}
+      height={500}
+      className="mx-auto"
+      showPath={true}
+      pathColor="rgba(255, 255, 255, 0.2)"
+      pathWidth={1}
+    />
+  )}
+  {reduceMotion && (
+    <div className="flex h-full w-full items-center justify-center px-6 text-center text-sm text-white/70">
+      Motion reduced for mobile. The visual orbit is disabled to keep scrolling smooth.
+    </div>
+  )}
   </div>
 </div>
 </motion.div>

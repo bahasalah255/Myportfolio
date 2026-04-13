@@ -159,7 +159,7 @@ export default function Hero() {
       <div className="relative isolate mx-auto max-w-7xl px-4 pt-6 sm:px-5 sm:pt-0 lg:px-8">
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-2xl sm:-top-80"
+          className="absolute inset-x-0 -top-40 -z-10 hidden transform-gpu overflow-hidden blur-2xl sm:block sm:-top-80"
         >
           <div
             style={{
@@ -271,7 +271,7 @@ export default function Hero() {
           </div>
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 -bottom-24 -z-10 transform-gpu overflow-hidden blur-2xl sm:-bottom-32"
+          className="absolute inset-x-0 -bottom-24 -z-10 hidden transform-gpu overflow-hidden blur-2xl sm:block sm:-bottom-32"
         >
           <div
             style={{

@@ -4,7 +4,7 @@
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import RadixTooltipDemo from '../animations/Tooltip'
 import LiquidButtonDemo from '../components/Liquidbutton'
 import CV from '../assets/CV.pdf'
@@ -72,6 +72,8 @@ const buttonItemVariants = {
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const reduceMotion = useReducedMotion()
+  const enableMotion = !reduceMotion
 
   return (
     <div id="home" className="overflow-hidden" >
@@ -187,28 +189,28 @@ export default function Hero() {
         
           <motion.div
             className="text-center"
-            variants={leftContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
+            variants={enableMotion ? leftContainerVariants : undefined}
+            initial={enableMotion ? "hidden" : false}
+            whileInView={enableMotion ? "visible" : undefined}
+            viewport={enableMotion ? { once: false, amount: 0.2 } : undefined}
           >
-           <motion.h1 variants={titleVariants} className="text-5xl sm:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[0.95] text-balance">
+           <motion.h1 variants={enableMotion ? titleVariants : undefined} className="text-5xl sm:text-7xl lg:text-[7rem] font-bold tracking-tight leading-[0.95] text-balance">
   <span className='text-white'>BAHA</span>{' '}
   <span className='block sm:inline text-[#7faab8]'>SALAH EDDINE.</span>
 </motion.h1>
-            <motion.p variants={paragraphVariants} className="mx-auto mt-4 max-w-2xl px-2 text-base sm:text-[1.25rem] font-medium text-pretty text-gray-400 leading-7 sm:leading-8">
+            <motion.p variants={enableMotion ? paragraphVariants : undefined} className="mx-auto mt-4 max-w-2xl px-2 text-base sm:text-[1.25rem] font-medium text-pretty text-gray-400 leading-7 sm:leading-8">
              20-year-old <span className='text-white'>Full-Stack Developer</span> from Morocco. Passionate about building fast, scalable web applications.<br></br>
             </motion.p>
             
-            <motion.div className="mx-auto mt-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:max-w-none sm:flex-row sm:gap-x-6" variants={buttonRowVariants}>
+            <motion.div className="mx-auto mt-10 flex w-full max-w-md flex-col items-center justify-center gap-4 sm:max-w-none sm:flex-row sm:gap-x-6" variants={enableMotion ? buttonRowVariants : undefined}>
               <motion.a
                 href="#projects"
-                variants={buttonItemVariants}
+                variants={enableMotion ? buttonItemVariants : undefined}
                 className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 px-8 sm:px-12 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white shadow-lg shadow-indigo-900/35 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:scale-[1.03] hover:from-indigo-400 hover:to-violet-600 hover:shadow-[0_18px_40px_rgba(99,102,241,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               >
                View Projects <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </motion.a>
-              <motion.a href="#contact" variants={buttonItemVariants} className="group inline-flex w-full sm:w-auto justify-center text-sm/6 font-semibold text-white">
+              <motion.a href="#contact" variants={enableMotion ? buttonItemVariants : undefined} className="group inline-flex w-full sm:w-auto justify-center text-sm/6 font-semibold text-white">
         <LiquidButtonDemo size="lg">Let's Talk </LiquidButtonDemo>       
 
               </motion.a>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { MotionConfig } from 'framer-motion'
 import Hero from './sections/Hero'
 import LightWavesBackground from './sections/Background'
 import Loader from './sections/Loader'
@@ -12,26 +13,30 @@ import Work from './sections/Work'
 import Loop from './sections/Loop'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
+import useReducedMotionPreference from './hooks/useReducedMotionPreference'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
+  const reduceMotion = useReducedMotionPreference()
 
   return (
-    <>
-      <ScrollProgressBar />
-      <LightWavesBackground />
-      <AmbientTrustText />
-      <Hero />
-      <About />
-      <Skills/>
-      <Journey/>
-      <Projects/>
-      <Work/>
-      <Loop/>
-      <Contact/>
-      <Footer/>
-      {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
-    </>
+    <MotionConfig reducedMotion={reduceMotion ? 'always' : 'user'}>
+      <>
+        {!reduceMotion && <ScrollProgressBar />}
+        {!reduceMotion && <LightWavesBackground />}
+        {!reduceMotion && <AmbientTrustText />}
+        <Hero />
+        <About />
+        <Skills reduceMotion={reduceMotion} />
+        <Journey/>
+        <Projects/>
+        <Work/>
+        <Loop reduceMotion={reduceMotion} />
+        <Contact/>
+        <Footer/>
+        {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
+      </>
+    </MotionConfig>
   )
 }
 

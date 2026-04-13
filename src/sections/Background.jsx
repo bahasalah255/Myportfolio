@@ -15,6 +15,7 @@ export function LightWavesBackground({
   const wavesRef = useRef([])
   const animationRef = useRef()
   const startTimeRef = useRef(0)
+  const isMobileRef = useRef(false)
 
   const initWaves = useCallback((height) => {
     const waves = []
@@ -50,19 +51,25 @@ export function LightWavesBackground({
     if (!canvas || !container) return
 
     startTimeRef.current = Date.now()
+    isMobileRef.current = window.matchMedia("(max-width: 768px)").matches || window.matchMedia("(pointer: coarse)").matches
 
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
     let width = 0
     let height = 0
+    let pixelRatio = 1
 
     const updateSize = () => {
       const rect = container.getBoundingClientRect()
       width = rect.width
       height = rect.height
-      canvas.width = width
-      canvas.height = height
+      pixelRatio = Math.min(window.devicePixelRatio || 1, isMobileRef.current ? 1 : 2)
+      canvas.width = Math.max(1, Math.floor(width * pixelRatio))
+      canvas.height = Math.max(1, Math.floor(height * pixelRatio))
+      canvas.style.width = `${width}px`
+      canvas.style.height = `${height}px`
+      ctx.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0)
       initWaves(height)
     }
     updateSize()
@@ -72,6 +79,9 @@ export function LightWavesBackground({
 
     const draw = () => {
       const time = (Date.now() - startTimeRef.current) * 0.001 * speed
+      const waveStep = isMobileRef.current ? 18 : 5
+      const glowCount = isMobileRef.current ? 1 : 3
+      const waveCount = isMobileRef.current ? 2 : wavesRef.current.length
 
       // Dark gradient background
       const bgGradient = ctx.createLinearGradient(0, 0, 0, height)
@@ -89,7 +99,7 @@ export function LightWavesBackground({
         { x: width * 0.5, y: height * 0.8, radius: Math.min(width, height) * 0.3, color: colors[2] },
       ]
 
-      glowSpots.forEach((spot) => {
+      glowSpots.slice(0, glowCount).forEach((spot) => {
         const rgb = hexToRgb(spot.color)
         const gradient = ctx.createRadialGradient(
           spot.x + Math.sin(time * 0.3) * 50,
@@ -107,12 +117,12 @@ export function LightWavesBackground({
       })
 
       // Draw flowing waves
-      wavesRef.current.forEach((wave) => {
+      wavesRef.current.slice(0, waveCount).forEach((wave) => {
         const rgb = hexToRgb(wave.color)
         ctx.beginPath()
         ctx.moveTo(0, height)
 
-        for (let x = 0; x <= width; x += 5) {
+        for (let x = 0; x <= width; x += waveStep) {
           const y =
             wave.y +
             Math.sin(x * wave.frequency + time * wave.speed + wave.phase) * wave.amplitude +
@@ -137,6 +147,10 @@ export function LightWavesBackground({
 
       ctx.globalCompositeOperation = "source-over"
       const topGlow = ctx.createLinearGradient(0, 0, 0, height * 0.4)
+            if (isMobileRef.current) {
+              return
+            }
+
       const rgb = hexToRgb(colors[0])
       topGlow.addColorStop(0, `rgba(${rgb.r},${rgb.g},${rgb.b},${0.05 * intensity})`)
       topGlow.addColorStop(1, "transparent")

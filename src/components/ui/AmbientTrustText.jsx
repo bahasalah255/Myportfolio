@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 export default function AmbientTrustText() {
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 overflow-hidden select-none">
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-0 hidden overflow-hidden select-none sm:block">
       <motion.div
        className="absolute left-1/2 top-[61%] -translate-x-1/2 whitespace-nowrap text-[60px] sm:text-[80px] md:text-[110px] lg:text-[140px] font-extrabold tracking-[0.18em] text-white/[0.04] pointer-events-none select-none z-0 blur-[1px]"
         animate={{ x: [0, 5, 0], y: [0, -3, 0] }}

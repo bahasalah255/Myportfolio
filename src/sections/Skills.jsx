@@ -2,20 +2,22 @@
 import React from "react";
 import { RadialIntro } from "@/components/animate-ui/components/community/radial-intro";
 import Orbit from '@/components/ui/Orbit'
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import {ITEMS1 , ITEMS } from '../data/skills'
 
 
 export default function Skills() {
+  const reduceMotion = useReducedMotion();
+
     return(
       
       <>
       
-    <section id="skills" className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32 text-white">
+    <section id="skills" className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-6 py-24 lg:px-8 lg:py-32 text-white">
       <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
+      initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
+      whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.18, margin: '0px 0px -8% 0px' }}
       transition={{ duration: 0.8, ease: "easeOut" }}>
         <div className="flex justify-center flex-col gap-1">
        <p className="mt-2 text-4xl sm:text-7xl font-bold tracking-tight text-white text-balance leading-none"><span className="text-white">My Tech </span><span className="text-gray-500">Stack</span></p>

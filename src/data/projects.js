@@ -6,6 +6,7 @@ import devis2 from '../assets/images/devis2.png'
 import django from '../assets/images/django.png'
 import MonitorIcon from './Web.jsx'
 import Mobile from './Mobile.jsx'
+import airbnb from '../assets/images/airbnb.png';
 import image from '../assets/images/image.png'
 const projects = [
     {
@@ -32,6 +33,20 @@ const projects = [
       image: admin,
       github: "https://github.com/bahasalah255/System-Gestion-Stagaires",
       demo: "#",
+      type : MonitorIcon
+    },
+     {
+      title: "Airbnb System",
+      repo_name : "airbnb-system",
+      category: "Full-Stack / Web",
+      description:
+        "Full-stack apartment rental management system with role-based authentication, reservation workflow, availability calendar, and admin dashboard.",
+      tech: [ "Laravel","React", "MySQL" , "Tailwend CSS"],
+      image: airbnb,
+      imageScale: 0.99,
+      imagePosition: "50% 29%",
+      github: "https://github.com/bahasalah255/airbnb-system",
+      demo: "https://repo-apartement.vercel.app",
       type : MonitorIcon
     },
     {

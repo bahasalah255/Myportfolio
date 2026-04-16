@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 import GitHubStarsButtonDemo from "../components/ui/ButtonGithub";
 import projects from '../data/projects.js'
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('all');
+  const reduceMotion = useReducedMotion();
 
   const filters = [
     { key: 'all', label: 'All' },
@@ -22,11 +24,11 @@ export default function Projects() {
   }, [activeFilter]);
 
   return (
-    <section id="projects" className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32 text-white">
+    <section id="projects" className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-6 py-24 lg:px-8 lg:py-32 text-white">
       <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.2 }}
+      initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
+      whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.18, margin: '0px 0px -8% 0px' }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="flex flex-col gap-3">
@@ -70,10 +72,10 @@ export default function Projects() {
             return (
             <motion.article
               key={project.title + index}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
-              transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
+              initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
+              whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.18 }}
+              transition={{ duration: 0.5, delay: reduceMotion ? 0 : index * 0.05, ease: "easeOut" }}
               className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]"
             >
               <div className="group/image relative overflow-hidden bg-slate-950/50">

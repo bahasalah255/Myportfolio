@@ -35,10 +35,23 @@ export  const ITEMS1 = [
   src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/archlinux/archlinux-original.svg",
 },
 {
+
   id: 8,
   name: "Linear",
   src: "https://cdn.simpleicons.org/linear/ffffff",
-}
+},
+{
+  id : 9 ,
+  name : 'supabase',
+  src : "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
+
+},
+{
+  id : 10 ,
+  name : 'render',
+  src : "https://media.licdn.com/dms/image/v2/D4E0BAQESApTGtLV4SQ/company-logo_200_200/B4EZxsUdo7KIAI-/0/1771343829997/renderco_logo?e=2147483647&v=beta&t=qMeLvPRiVcDFu-An3v8CFcy14pRZxO5m0rY3Ix3xqXU",
+
+},
 ];
 export const ITEMS = [
   {
@@ -74,7 +87,7 @@ export const ITEMS = [
   {
     id: 7,
     name: "Django",
-    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg",
+    src: "https://nextsoftware.io/files/images/logos/main/django-logo.png",
   },
   {
     id: 8,

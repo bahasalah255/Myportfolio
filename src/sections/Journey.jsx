@@ -1,14 +1,16 @@
 /* eslint-disable no-unused-vars */
 import Timeline from '../components/ui/Timeline.jsx'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 export default function Journey(){
+    const reduceMotion = useReducedMotion()
+
     return(
         <>
-         <section id="journey" className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32 text-white">
+         <section id="journey" className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-6 py-24 lg:px-8 lg:py-32 text-white">
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false, amount: 0.2 }}
+                    initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
+                    whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.18, margin: '0px 0px -8% 0px' }}
                     transition={{ duration: 0.8, ease: 'easeOut' }}
                 >
         <div className="flex justify-center flex-col gap-1">

@@ -101,7 +101,7 @@ export default function About() {
                 className="group inline-flex items-center gap-2 rounded-xl border border-white/20 bg-gradient-to-r from-blue-500/20 to-violet-500/20 px-5 py-3 text-sm sm:text-base font-semibold text-white shadow-lg shadow-blue-500/10 transition duration-300 hover:-translate-y-0.5 hover:border-white/35 hover:from-blue-500/30 hover:to-violet-500/30 hover:shadow-blue-500/20"
               >
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-300 shadow-[0_0_10px_rgba(110,231,183,0.9)]" />
-                <span>500 Contributions</span>
+                <span>+ 600 Contributions</span>
               </motion.button>
 
               <motion.button

@@ -24,7 +24,6 @@ function App() {
       <Hero />
       <About />
       <Skills/>
-      <Journey/>
       <Projects/>
       <Work/>
       <Loop/>

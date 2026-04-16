@@ -17,7 +17,7 @@ export function Timeline({ data = [] }) {
   });
 
   return (
-    <div ref={timelineRef} className="relative mx-auto w-full max-w-5xl py-6">
+    <div ref={timelineRef} className="relative mx-auto w-full max-w-5xl">
       {/* Horizontal Scroll Progress Line */}
       <div className="pointer-events-none relative mb-8 h-1 overflow-hidden rounded-full bg-white/5 backdrop-blur-sm">
         <motion.div

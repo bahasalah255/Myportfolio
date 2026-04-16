@@ -3,6 +3,7 @@ import { Timeline } from "@/components/ui/TimelineBase";
 
 export function TimelineDemo() {
   const data = [
+    /*
     {
       title: "2024",
       content: (
@@ -17,6 +18,7 @@ export function TimelineDemo() {
         </div>
       ),
     },
+    */
     {
       title: "2025 - Present",
       content: (

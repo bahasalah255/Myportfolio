@@ -25,6 +25,7 @@ function App() {
       <About />
       <Skills/>
       <Projects/>
+      <Journey/>
       <Work/>
       <Loop/>
       <Contact/>

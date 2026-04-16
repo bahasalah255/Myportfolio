@@ -24,7 +24,7 @@ export default function Projects() {
   }, [activeFilter]);
 
   return (
-    <section id="projects" className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-6 py-24 lg:px-8 lg:py-32 text-white">
+    <section id="projects" className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-6 pt-6 pb-24 lg:px-8 lg:pt-8 lg:pb-32 text-white">
       <motion.div
       initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
       whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}

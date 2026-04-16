@@ -6,7 +6,10 @@ export default function Journey(){
 
     return(
         <>
-         <section id="journey" className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-6 py-24 lg:px-8 lg:py-32 text-white">
+        <section
+  id="journey"
+    className="relative z-10 mx-auto max-w-7xl scroll-mt-24 px-6 pt-20 pb-6 lg:px-8 lg:pt-24 lg:pb-8 text-white"
+>
                 <motion.div
                     initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
                     whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}

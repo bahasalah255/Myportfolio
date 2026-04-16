@@ -66,7 +66,7 @@ export default function Projects() {
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
           {filteredProjects.map((project, index) => {
-            const TypeIcon = project.type;
+            
             const imageScale = typeof project.imageScale === 'number' ? project.imageScale : 1;
             const imagePosition = project.imagePosition || 'center';
             return (
@@ -92,9 +92,7 @@ export default function Projects() {
                 </div>
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent transition-opacity duration-300 group-hover/image:opacity-100" />
                 <div className="pointer-events-none absolute inset-0 bg-black/45 opacity-0 transition-opacity duration-300 group-hover/image:opacity-100" />
-                <span className="absolute top-4 left-4 z-10 rounded-full border border-white/20 bg-black/35 px-4 py-3 text-[11px] font-medium tracking-wide text-white/80 backdrop-blur-sm">
-                  {<TypeIcon />}
-                </span>
+               
                 <div className="pointer-events-none absolute inset-x-0 bottom-4 z-10 flex justify-end gap-2 opacity-0 translate-y-2 transition-all duration-300 group-hover/image:opacity-100 group-hover/image:translate-y-0">
                   <GitHubStarsButtonDemo
                     variant={project.github}

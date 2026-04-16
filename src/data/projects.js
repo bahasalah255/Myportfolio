@@ -21,7 +21,7 @@ const projects = [
       imagePosition: "50% 29%",
       github: "https://github.com/bahasalah255/devis-app",
       demo: "#",
-      type : Mobile
+     
     },
     {
       title: "System Gestion Stagaires",
@@ -33,7 +33,7 @@ const projects = [
       image: admin,
       github: "https://github.com/bahasalah255/System-Gestion-Stagaires",
       demo: "#",
-      type : MonitorIcon
+     
     },
      {
       title: "Airbnb System",
@@ -47,7 +47,7 @@ const projects = [
       imagePosition: "50% 29%",
       github: "https://github.com/bahasalah255/airbnb-system",
       demo: "https://repo-apartement.vercel.app",
-      type : MonitorIcon
+     
     },
     {
       title: "ISTA Platform",
@@ -59,7 +59,7 @@ const projects = [
       image: ista,
       github: "https://github.com/bahasalah255/my-ista",
       demo: "https://my-ista.vercel.app/",
-      type : MonitorIcon
+      
     },
     {
       title: "AutoFix Website",
@@ -71,7 +71,7 @@ const projects = [
       image: autofix,
       github: "https://github.com/bahasalah255/AutoFix-Garage",
       demo: "#",
-      type : MonitorIcon
+      
     },
     {
       title: "Devis Admin",
@@ -83,8 +83,7 @@ const projects = [
       image: devis2,
       github: "https://github.com/bahasalah255/devis-app-web",
       demo: "#",
-      type : MonitorIcon
-    },
+          },
     {
       title: "Django Dashboard",
       repo_name : "Simple-Crud-Django",
@@ -95,7 +94,7 @@ const projects = [
       image: django,
       github: "https://github.com/bahasalah255/Simple-Crud-Django",
       demo: "#",
-      type : MonitorIcon
+      
     },
   ];
   export default projects ;

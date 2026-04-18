@@ -125,57 +125,85 @@ export default function About() {
             <div className="rounded-3xl border border-white/10 bg-slate-900/70 p-4 sm:p-6 backdrop-blur-xl shadow-2xl">
               <p className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-white/65 uppercase">LIVE SNAPSHOT</p>
 
-              <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 px-4 py-5 sm:px-6 text-sm sm:text-base font-mono leading-8 text-white/90">
-                <div>
-                  <span className="text-violet-300">const</span>{" "}
-                  <span className="text-blue-300">dev</span>{" "}
-                  <span className="text-white/90">=</span>{" "}
-                  <span className="text-white/90">{`{`}</span>
-                </div>
-                <div className="pl-4">
-                  <span className="text-sky-300">name</span>
-                  <span className="text-white/80">: </span>
-                  <span className="text-emerald-300">"Baha Salaheddine"</span>
-                  <span className="text-white/80">,</span>
-                </div>
-                <div className="pl-4">
-                  <span className="text-sky-300">role</span>
-                  <span className="text-white/80">: </span>
-                  <span className="text-emerald-300">"Full-Stack Developer"</span>
-                  <span className="text-white/80">,</span>
-                </div>
-                <div className="pl-4">
-                  <span className="text-sky-300">age</span>
-                  <span className="text-white/80">: </span>
-                  <span className="text-amber-300">20</span>
-                  <span className="text-white/80">,</span>
-                </div>
-                <div className="pl-4">
-                  <span className="text-sky-300">location</span>
-                  <span className="text-white/80">: </span>
-                  <span className="text-emerald-300">"Morocco"</span>
-                  <span className="text-white/80">,</span>
-                </div>
-                <div className="pl-4">
-                  <span className="text-sky-300">status</span>
-                  <span className="text-white/80">: </span>
-                  <span className="text-emerald-300">"Open to work"</span>
-                </div>
-                <div>
-                  <span className="text-white/90">{`}`}</span>
-                </div>
-              </div>
+             <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 px-4 py-5 text-sm font-mono leading-8 text-white/90 sm:px-6 sm:text-base">
+  <div>
+    <span className="text-violet-300">const</span>{" "}
+    <span className="text-blue-300">roles</span>{" "}
+    <span className="text-white/90">=</span>{" "}
+    <span className="text-white/90">[</span>
+    <span className="text-emerald-300">"Backend"</span>
+    <span className="text-white/80">, </span>
+    <span className="text-emerald-300">"Frontend"</span>
+    <span className="text-white/80">, </span>
+    <span className="text-emerald-300">"Full-Stack"</span>
+    <span className="text-white/90">];</span>
+  </div>
 
-              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Focus</p>
-                  <p className="mt-1 text-lg font-semibold text-white">Web Apps</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">Mindset</p>
-                  <p className="mt-1 text-lg font-semibold text-white">Creative + Clean</p>
-                </div>
-              </div>
+  <div>
+    <span className="text-violet-300">const</span>{" "}
+    <span className="text-blue-300">dev</span>{" "}
+    <span className="text-white/90">=</span>{" "}
+    <span className="text-white/90">{`{`}</span>
+  </div>
+
+  <div className="pl-4">
+    <span className="text-sky-300">name</span>
+    <span className="text-white/80">: </span>
+    <span className="text-emerald-300">"Baha Salaheddine"</span>
+    <span className="text-white/80">,</span>
+  </div>
+
+  <div className="pl-4">
+    <span className="text-sky-300">role</span>
+    <span className="text-white/80">: </span>
+    <span className="text-blue-300">roles</span>
+    <span className="text-white/90">[</span>
+    <span className="text-amber-300">2</span>
+    <span className="text-white/90">]</span>
+    <span className="text-white/80">, </span>
+    <span className="text-gray-400">// Full-Stack</span>
+  </div>
+
+  <div className="pl-4">
+    <span className="text-sky-300">age</span>
+    <span className="text-white/80">: </span>
+    <span className="text-amber-300">20</span>
+    <span className="text-white/80">,</span>
+  </div>
+
+  <div className="pl-4">
+    <span className="text-sky-300">location</span>
+    <span className="text-white/80">: </span>
+    <span className="text-emerald-300">"Morocco"</span>
+    <span className="text-white/80">,</span>
+  </div>
+
+  <div className="pl-4">
+    <span className="text-sky-300">status</span>
+    <span className="text-white/80">: </span>
+    <span className="text-emerald-300">"Open to work"</span>
+  </div>
+
+  <div>
+    <span className="text-white/90">{`}`}</span>
+  </div>
+</div>
+
+<div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">
+      Focus
+    </p>
+    <p className="mt-1 text-lg font-semibold text-white">Web Apps</p>
+  </div>
+
+  <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+    <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">
+      Mindset
+    </p>
+    <p className="mt-1 text-lg font-semibold text-white">Creative + Clean</p>
+  </div>
+</div>
             </div>
 
             <div className="pointer-events-none absolute -left-4 -bottom-5 h-16 w-16 rounded-2xl border border-white/15 bg-white/5" />

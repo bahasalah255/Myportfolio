@@ -41,6 +41,11 @@ export  const ITEMS1 = [
   src: "https://cdn.simpleicons.org/linear/ffffff",
 },
 {
+  id: 9 ,
+  name : "n8n",
+  src : "https://cdn.simpleicons.org/n8n/svg"
+},
+{
   id : 9 ,
   name : 'supabase',
   src : "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",

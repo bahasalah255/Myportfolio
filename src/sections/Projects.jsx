@@ -13,13 +13,14 @@ export default function Projects() {
     { key: "web", label: "Web" },
     { key: "mobile", label: "Mobile" },
     { key: "dashboard", label: "Dashboard" },
+    {key : "Workflow / Automation" , label : "Automation"},
   ];
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "all") return projects;
 
     return projects.filter((project) =>
-      (project.category || "").toLowerCase().includes(activeFilter)
+      (project.category || "").toLowerCase().includes(activeFilter.toLowerCase())
     );
   }, [activeFilter]);
 

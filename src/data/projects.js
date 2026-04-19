@@ -6,6 +6,7 @@ import devis2 from '../assets/images/devis2.png'
 import django from '../assets/images/django.png'
 import MonitorIcon from './Web.jsx'
 import Mobile from './Mobile.jsx'
+import n8n from '../assets/images/n8n.png'
 import airbnb from '../assets/images/airbnb.png';
 import image from '../assets/images/image.png'
 const projects = [
@@ -82,6 +83,17 @@ const projects = [
       tech: ["React", "Laravel API", "MySQL" ,"Tailwend CSS"],
       image: devis2,
       github: "https://github.com/bahasalah255/devis-app-web",
+      demo: "#",
+          },
+    {
+      title: "Automated B2B Email Outreach",
+      repo_name : "n8n-email-automation",
+      category: "Workflow / Automation",
+      description:
+        "Système d’automatisation d’envoi d’emails B2B avec n8n. Le workflow récupère des entreprises depuis Google Sheets, filtre les emails valides, envoie des messages par batch (5 emails / heure) et met à jour automatiquement le statut.",
+      tech: ["n8n", "Google Sheets API", "Gmail API"],
+      image: n8n,
+      github: "https://github.com/bahasalah255/n8n-email-automation",
       demo: "#",
           },
     {

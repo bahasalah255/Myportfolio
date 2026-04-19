@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 export default function Loop() {
   const demoItems = [
-    { link: "#", text: "eat();", image: null },
-    { link: "#", text: "code();", image: null },
-    { link: "#", text: "sleep();", image: null },
-    { link: "#", text: "repeat();", image: null },
+    { link: null, text: "eat();", image: null },
+    { link: null, text: "code();", image: null },
+    { link: null, text: "sleep();", image: null },
+    { link: null, text: "repeat();", image: null },
   ];
 
   return (

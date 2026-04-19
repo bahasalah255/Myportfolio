@@ -9,6 +9,7 @@ import RadixTooltipDemo from '../animations/Tooltip'
 import LiquidButtonDemo from '../components/Liquidbutton'
 import CV from '../assets/CV.pdf'
 import ButtonDemo from '../components/ButtonFlip'
+import ScrollButt from '../components/ScrollButt'
 
 const navigation = [
   { name: 'Home', href: '#home' },
@@ -118,44 +119,110 @@ export default function Hero() {
           </div>
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-          <div className="fixed inset-0 z-40 bg-black/20 backdrop-blur-[1px]" />
-          <DialogPanel className="fixed inset-x-4 top-20 z-50 rounded-2xl border border-white/10 bg-gray-900/90 p-4 shadow-2xl shadow-black/40 backdrop-blur-md">
-            <div className="flex items-center justify-between gap-3">
-              
-              <button
-                type="button"
-                onClick={() => setMobileMenuOpen(false)}
-                className="-m-2.5 rounded-md p-2.5 text-gray-200"
-              >
-                <span className="sr-only">Close menu</span>
-                <XMarkIcon aria-hidden="true" className="size-6" />
-              </button>
+  {/* Overlay */}
+  <div className="fixed inset-0 z-40 bg-black/70 backdrop-blur-md transition-opacity duration-300" />
+
+  {/* Premium Panel */}
+  <DialogPanel className="fixed inset-x-4 top-5 z-50 overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,rgba(10,18,40,0.96),rgba(3,8,20,0.96))] shadow-[0_20px_80px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
+    {/* Glow accents */}
+    <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div className="absolute -left-10 top-0 h-32 w-32 rounded-full bg-cyan-400/10 blur-3xl" />
+      <div className="absolute right-0 top-10 h-40 w-40 rounded-full bg-fuchsia-500/10 blur-3xl" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/50 to-transparent" />
+    </div>
+
+    <div className="relative px-5 pb-5 pt-4">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-[11px] font-medium uppercase tracking-[0.35em] text-white/40">
+            Navigation
+          </p>
+          <p className="mt-1 text-sm text-white/70">
+            Explore my portfolio
+          </p>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen(false)}
+          className="group rounded-full border border-white/10 bg-white/5 p-2.5 text-white/70 transition-all duration-300 hover:scale-105 hover:border-white/20 hover:bg-white/10 hover:text-white"
+        >
+          <span className="sr-only">Close menu</span>
+          <XMarkIcon
+            aria-hidden="true"
+            className="size-5 transition-transform duration-300 group-hover:rotate-90"
+          />
+        </button>
+      </div>
+
+      {/* Divider */}
+      <div className="mt-4 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+      {/* Links */}
+      <div className="mt-4 space-y-2">
+        {navigation.map((item, index) => (
+          <a
+            key={item.name}
+            href={item.href}
+            onClick={() => setMobileMenuOpen(false)}
+            className="group flex items-center justify-between rounded-2xl border border-transparent bg-white/[0.03] px-4 py-4 text-base font-medium text-white/85 transition-all duration-300 hover:border-cyan-300/20 hover:bg-white/[0.06] hover:text-white"
+          >
+            <div className="flex items-center gap-3">
+              <span className="text-xs font-semibold tracking-[0.2em] text-white/25">
+                0{index + 1}
+              </span>
+              <span>{item.name}</span>
             </div>
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 px-2 pb-1">
-              {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="group relative text-sm font-semibold text-white transition-all duration-300 hover:text-cyan-200"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item.name}
-                  <span className="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 rounded-full bg-cyan-300/90 shadow-[0_0_12px_rgba(103,232,249,0.9)] transition-transform duration-300 group-hover:scale-x-100" />
-                </a>
-              ))}
-            </div>
-            <div className="mt-4 flex justify-center">
-              <a
-                href={CV}
-                download={CV}
-                onClick={() => setMobileMenuOpen(false)}
-                className="inline-flex items-center gap-2 rounded-full bg-purple-700 px-5 py-2.5 text-sm font-medium tracking-wide text-white transition-all duration-200 hover:scale-105 hover:bg-purple-600 active:scale-95"
-              >
-                <ButtonDemo>CV</ButtonDemo>
-              </a>
-            </div>
-          </DialogPanel>
-        </Dialog>
+
+            <span className="translate-x-0 text-white/25 transition-all duration-300 group-hover:translate-x-1 group-hover:text-cyan-300">
+              ↗
+            </span>
+          </a>
+        ))}
+      </div>
+
+      {/* CTA */}
+      <div className="mt-5">
+        <a
+          href={CV}
+          download
+          onClick={() => setMobileMenuOpen(false)}
+          className="group relative flex w-full items-center justify-center overflow-hidden rounded-2xl border border-fuchsia-400/20 bg-gradient-to-r from-fuchsia-600 via-violet-600 to-indigo-600 px-5 py-3.5 text-sm font-semibold tracking-[0.18em] text-white uppercase shadow-[0_10px_35px_rgba(147,51,234,0.35)] transition-all duration-300 hover:scale-[1.015] hover:shadow-[0_14px_45px_rgba(147,51,234,0.45)] active:scale-[0.985]"
+        >
+          <span className="absolute inset-0 bg-white/0 transition duration-300 group-hover:bg-white/5" />
+          <span className="relative"> <ButtonDemo>CV</ButtonDemo></span>
+        </a>
+      </div>
+
+      {/* Footer */}
+      <div className="mt-5 flex items-center justify-center gap-5 border-t border-white/10 pt-4 text-sm text-white/45">
+        <a
+          href="https://github.com/yourusername"
+          target="_blank"
+          rel="noreferrer"
+          className="transition hover:text-white"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://linkedin.com/in/yourusername"
+          target="_blank"
+          rel="noreferrer"
+          className="transition hover:text-white"
+        >
+          LinkedIn
+        </a>
+        <a
+          href="mailto:your@email.com"
+          className="transition hover:text-white"
+        >
+          Email
+        </a>
+      </div>
+    </div>
+  </DialogPanel>
+</Dialog>
       </header>
 
       <div className="relative isolate mx-auto max-w-7xl px-4 pt-6 sm:px-5 sm:pt-0 lg:px-8">
@@ -258,9 +325,7 @@ export default function Hero() {
               </a>
             </div>
            <div className="flex flex-col items-center gap-3">
-  <div className="w-6 h-10 rounded-full border border-white/15 flex justify-center pt-2 bg-white/[0.02] backdrop-blur-sm">
-    <span className="w-1.5 h-1.5 rounded-full bg-white/60 animate-bounce"></span>
-  </div>
+  <ScrollButt/>
 
   <span className="text-[10px] tracking-[0.35em] uppercase text-white/35">
     Scroll

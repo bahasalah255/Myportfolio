@@ -12,6 +12,7 @@ import Work from './sections/Work'
 import Loop from './sections/Loop'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
+import Button from './components/Top'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -29,6 +30,7 @@ function App() {
       <Work/>
       <Loop/>
       <Contact/>
+      <Button/>
       <Footer/>
       {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
     </>

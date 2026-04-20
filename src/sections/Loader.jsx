@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react"
 
 export default function Loader({ onComplete }) {
-  const commandText = "open baha.portfolio"
-  const welcomeText = "welcome."
+  const commandText = "sudo whoami"
+  const passwordText = "[sudo] password: ••••••"
+  const welcomeText = "Baha • Full-Stack Dev"
 
   const [isFadingOut, setIsFadingOut] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
   const [showWelcome, setShowWelcome] = useState(false)
   const [typedCommand, setTypedCommand] = useState("")
+  const [typedPassword, setTypedPassword] = useState("")
   const [typedWelcome, setTypedWelcome] = useState("")
 
   useEffect(() => {
@@ -25,23 +28,32 @@ export default function Loader({ onComplete }) {
       }, firstStart + index * charDelay)
     }
 
-    const secondStart = firstStart + commandText.length * charDelay + 160
-    pushTimeout(() => setShowWelcome(true), secondStart)
+    const passwordStart = firstStart + commandText.length * charDelay + 180
+    pushTimeout(() => setShowPassword(true), passwordStart)
+
+    for (let index = 1; index <= passwordText.length; index++) {
+      pushTimeout(() => {
+        setTypedPassword(passwordText.slice(0, index))
+      }, passwordStart + index * charDelay)
+    }
+
+    const welcomeStart = passwordStart + passwordText.length * charDelay + 180
+    pushTimeout(() => setShowWelcome(true), welcomeStart)
 
     for (let index = 1; index <= welcomeText.length; index++) {
       pushTimeout(() => {
         setTypedWelcome(welcomeText.slice(0, index))
-      }, secondStart + index * charDelay)
+      }, welcomeStart + index * charDelay)
     }
 
-    const fadeStart = secondStart + welcomeText.length * charDelay + 180
+    const fadeStart = welcomeStart + welcomeText.length * charDelay + 250
     pushTimeout(() => setIsFadingOut(true), fadeStart)
     pushTimeout(() => onComplete?.(), fadeStart + 500)
 
     return () => {
       timeouts.forEach(clearTimeout)
     }
-  }, [commandText, welcomeText, onComplete])
+  }, [onComplete])
 
   return (
     <div
@@ -55,7 +67,9 @@ export default function Loader({ onComplete }) {
               <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
             </div>
-            <span className="text-[10px] uppercase tracking-[0.22em] text-slate-400">terminal</span>
+            <span className="text-[10px] uppercase tracking-[0.22em] text-slate-400">
+              terminal
+            </span>
           </div>
 
           <div className="p-5 sm:p-6">
@@ -64,14 +78,24 @@ export default function Loader({ onComplete }) {
               <span className="text-slate-500">:</span>
               <span className="text-violet-300">~</span>
               <span className="text-slate-400">$</span>{" "}
-              <span className="text-zinc-100">{typedCommand}</span>
-              {!showWelcome && <span className="ml-0.5 animate-pulse text-emerald-200">|</span>}
+              <span className="text-cyan-300">{typedCommand}</span>
+              {!showPassword && (
+                <span className="ml-0.5 animate-pulse text-emerald-200">|</span>
+              )}
             </p>
 
+            {showPassword && (
+              <p className="text-sm leading-7 text-zinc-300/85 sm:text-base">
+                <span className="text-gray-400">{typedPassword}</span>
+                {!showWelcome && (
+                  <span className="ml-0.5 animate-pulse text-emerald-200">|</span>
+                )}
+              </p>
+            )}
+
             {showWelcome && (
-              <p className="mt-1 text-sm leading-7 text-zinc-300/85 sm:text-base">
-                <span className="text-sky-300">&gt;</span>{" "}
-                <span className="text-zinc-200">{typedWelcome}</span>
+              <p className="text-sm leading-7 sm:text-base">
+                <span className="text-emerald-300">{typedWelcome}</span>
                 <span className="ml-0.5 animate-pulse text-emerald-200">|</span>
               </p>
             )}

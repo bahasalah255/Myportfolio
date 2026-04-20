@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { motion } from "framer-motion";
 import Magnet from './Magnet'
+import { useEffect, useState } from "react"
 
 const leftContainerVariants = {
   hidden: { opacity: 0 },
@@ -12,7 +13,12 @@ const leftContainerVariants = {
     },
   },
 };
-
+const projects = [
+  "DevisApp",
+  "StagiairesSys",
+  "ERP",
+]
+ 
 const titleVariants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -62,6 +68,15 @@ const cardVariants = {
 };
 
 export default function About() {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % projects.length)
+    }, 2500) 
+
+    return () => clearInterval(interval)
+  }, [])
   return (
     <section id="about" className="relative z-10 mx-auto max-w-7xl px-6 py-24 lg:px-8 lg:py-32 text-white">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -126,6 +141,10 @@ export default function About() {
               <p className="text-[10px] sm:text-xs font-semibold tracking-[0.3em] text-white/65 uppercase">LIVE SNAPSHOT</p>
 
              <div className="mt-4 rounded-2xl border border-white/10 bg-black/30 px-4 py-5 text-sm font-mono leading-8 text-white/90 sm:px-6 sm:text-base">
+             <div className="mb-3 flex items-center justify-between text-[11px] uppercase tracking-[0.18em] text-slate-400">
+  <span>live-status.js</span>
+  <span className="text-emerald-300">live</span>
+</div>
   <div>
     <span className="text-violet-300">const</span>{" "}
     <span className="text-blue-300">roles</span>{" "}
@@ -192,16 +211,24 @@ export default function About() {
 <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
   <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
     <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">
-      Focus
-    </p>
-    <p className="mt-1 text-lg font-semibold text-white">Web Apps</p>
+  STATUS
+</p>
+
+<p className="mt-1 flex items-center gap-2 text-lg font-semibold text-white">
+  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+  Open to work
+</p>
   </div>
 
   <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-    <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">
-      Mindset
-    </p>
-    <p className="mt-1 text-lg font-semibold text-white">Creative + Clean</p>
+   <p className="text-[10px] uppercase tracking-[0.22em] text-white/60">
+  CURRENT WORK
+</p>
+
+<p className="mt-1 flex items-center gap-2 text-lg font-semibold text-white transition-all duration-500">
+        <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse" />
+        {projects[index]}
+      </p>
   </div>
 </div>
             </div>

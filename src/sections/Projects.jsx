@@ -54,7 +54,7 @@ export default function Projects() {
                   key={filter.key}
                   type="button"
                   onClick={() => setActiveFilter(filter.key)}
-                  className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
+                  className={`rounded-full border px-4 py-1.5 text-sm transition-colors cursor-pointer ${
                     isActive
                       ? "border-white/30 bg-white/10 text-white"
                       : "border-white/10 bg-white/5 text-white/60 hover:bg-white/10 hover:text-white/90"

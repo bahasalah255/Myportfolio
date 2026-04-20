@@ -16,59 +16,12 @@ export function RadixTooltipDemo({
 
  const terminalSegments = useMemo(
   () => [
-    { text: "baha@dev:~$ ", className: "text-green-400" },
-    { text: "init", className: "text-cyan-300" },
-    { text: " ", className: "text-gray-200" },
-    { text: "--portfolio", className: "text-violet-300" },
-
-    { text: "\n\n", className: "text-gray-200" },
-
-    { text: " Booting system...", className: "text-gray-400" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "✔ Loading modules", className: "text-emerald-400" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "✔ Initializing UI engine", className: "text-emerald-400" },
-
-    { text: "\n\n", className: "text-gray-200" },
-
-    { text: "baha@dev:~$ ", className: "text-green-400" },
-    { text: "deploy", className: "text-blue-300" },
-    { text: " ", className: "text-gray-200" },
-    { text: "skills", className: "text-cyan-200" },
-
-    { text: "\n", className: "text-gray-200" },
-    { text: "→ React ✓", className: "text-emerald-300" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "→ Laravel ✓", className: "text-emerald-300" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "→ MySQL ✓", className: "text-emerald-300" },
-
-    { text: "\n\n", className: "text-gray-200" },
-
-    { text: "baha@dev:~$ ", className: "text-green-400" },
-    { text: "run", className: "text-yellow-300" },
-    { text: " ", className: "text-gray-200" },
-    { text: "projects", className: "text-cyan-200" },
-
-    { text: "\n", className: "text-gray-200" },
-    { text: " Devis App launched", className: "text-cyan-300" },
-    { text: "\n", className: "text-gray-200" },
-    { text: " AutoFix system online", className: "text-cyan-300" },
-
-    { text: "\n\n", className: "text-gray-200" },
-
-    { text: "baha@dev:~$ ", className: "text-green-400" },
-    { text: "status", className: "text-pink-300" },
-
-    { text: "\n", className: "text-gray-200" },
-    { text: "✔ All systems operational", className: "text-emerald-400" },
-    { text: "\n", className: "text-gray-200" },
-    { text: "✔ Ready for collaboration", className: "text-emerald-400" },
-
-    { text: "\n\n", className: "text-gray-200" },
-
-    { text: "baha@dev:~$ ", className: "text-green-400" },
-    { text: "_", className: "animate-pulse text-white" },
+   { text: "baha@dev:~$ ", className: "text-green-400" },
+{ text: "sudo run portfolio", className: "text-cyan-300" },
+{ text: "\n", className: "text-gray-200" },
+{ text: "[sudo] password: ••••••••", className: "text-gray-400" },
+{ text: "\n", className: "text-gray-200" },
+{ text: "Access granted ✓", className: "text-emerald-300" },
   ],
   []
 );

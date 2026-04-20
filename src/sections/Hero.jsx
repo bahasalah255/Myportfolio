@@ -174,10 +174,6 @@ export default function Hero() {
               </span>
               <span>{item.name}</span>
             </div>
-
-            <span className="translate-x-0 text-white/25 transition-all duration-300 group-hover:translate-x-1 group-hover:text-cyan-300">
-              ↗
-            </span>
           </a>
         ))}
       </div>

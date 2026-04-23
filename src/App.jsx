@@ -13,6 +13,7 @@ import Loop from './sections/Loop'
 import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import Button from './components/Top'
+import DesktopHint from './components/Pop'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -22,6 +23,7 @@ function App() {
       <ScrollProgressBar />
       <LightWavesBackground />
       <AmbientTrustText />
+      <DesktopHint/>
       <Hero />
       <About />
       <Skills/>

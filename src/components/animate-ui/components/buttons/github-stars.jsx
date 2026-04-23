@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 const sizeStyles = {
   sm: 'h-8 px-3 text-xs',
   md: 'h-9 px-3.5 text-sm',
-  lg: 'h-10 px-4 text-sm',
+  lg: 'h-11 px-3 text-sm',
 }
 
 export function GitHubStarsButton({
@@ -133,11 +133,12 @@ export function GitHubStarsButton({
 
   const content = (
     <>
-      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4 fill-current">
+      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-7 w-5 fill-current">
         <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.38 7.86 10.9.57.1.78-.25.78-.55 0-.27-.01-.99-.02-1.95-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.27.72-1.56-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.28 1.2-3.08-.12-.3-.52-1.5.11-3.14 0 0 .98-.31 3.2 1.18a11.12 11.12 0 0 1 5.83 0c2.21-1.49 3.19-1.18 3.19-1.18.63 1.64.23 2.84.11 3.14.75.8 1.2 1.82 1.2 3.08 0 4.42-2.69 5.4-5.26 5.68.41.36.78 1.08.78 2.17 0 1.57-.02 2.84-.02 3.23 0 .3.2.65.79.54A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
       </svg>
       <span className="font-medium leading-none">{starsLabel}</span>
       <span className="text-yellow-400" aria-hidden="true">★</span>
+      
     </>
   )
 
@@ -156,6 +157,7 @@ export function GitHubStarsButton({
   }
 
   return (
+  <span className="group/deploy relative inline-flex">
     <a
       href={repoUrl}
       target="_blank"
@@ -171,5 +173,11 @@ export function GitHubStarsButton({
     >
       {content}
     </a>
-  )
+
+    <span className="pointer-events-none absolute bottom-full right-0 mb-2 inline-flex items-center gap-2 whitespace-nowrap rounded-xl border border-cyan-200/25 bg-slate-900/90 px-3.5 py-2 text-[11px] font-medium tracking-wide text-cyan-100 shadow-[0_8px_30px_rgba(6,182,212,0.22)] backdrop-blur-md opacity-0 translate-y-1 scale-95 transition-all duration-200 group-hover/deploy:opacity-100 group-hover/deploy:translate-y-0 group-hover/deploy:scale-100">
+      <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 animate-pulse" />
+      View on GitHub
+    </span>
+  </span>
+)
 }

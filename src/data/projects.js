@@ -21,7 +21,7 @@ const projects = [
       imageScale: 0.99,
       imagePosition: "50% 29%",
       github: "https://github.com/bahasalah255/devis-app",
-      demo: "#",
+      demo: "https://expo.dev/artifacts/eas/f7a3EeffRsRrpZjAexRUhs.apk",
      
     },
     {

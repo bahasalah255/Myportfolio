@@ -10,7 +10,6 @@ import LiquidButtonDemo from '../components/Liquidbutton'
 import CV from '../assets/CV.pdf'
 import ButtonDemo from '../components/ButtonFlip'
 import ScrollButt from '../components/ScrollButt'
-
 const navigation = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
@@ -345,6 +344,8 @@ export default function Hero() {
           />
         </div>
       </div>
+      
+    
     </div>
   )
 }

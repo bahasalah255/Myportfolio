@@ -8,7 +8,8 @@ import MonitorIcon from './Web.jsx'
 import Mobile from './Mobile.jsx'
 import n8n from '../assets/images/n8n.png'
 import airbnb from '../assets/images/airbnb.png';
-import image from '../assets/images/image.png'
+import image from '../assets/images/image.png';
+import logistic from '../assets/images/logistic.png'
 const projects = [
     {
       title: "Devis App",
@@ -48,6 +49,20 @@ const projects = [
       imagePosition: "50% 29%",
       github: "https://github.com/bahasalah255/airbnb-system",
       demo: "https://repo-apartement.vercel.app",
+     
+    },
+    {
+      title: "Logistics Management System",
+      repo_name : "ak-rapid-trans",
+      category: "Full-Stack / Web",
+      description:
+        "A full-stack logistics dashboard built to optimize transport operations. It includes intelligent truck assignment, order lifecycle management, real-time notifications, and data visualization for better decision-making",
+      tech: [ "Laravel","React", "MySQL" , "Tailwend CSS"],
+      image: logistic,
+      imageScale: 0.99,
+      imagePosition: "50% 29%",
+      github: "https://github.com/alielfarissi51-code/ak-rapid-trans",
+      demo: "#",
      
     },
     {

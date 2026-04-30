@@ -1,16 +1,96 @@
-# React + Vite
+# Salah Baha — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, performant portfolio built to showcase my projects, skills, and experience as a Full Stack Developer.
 
-Currently, two official plugins are available:
+**Live Preview:** [github.com/bahasalah255/Myportfolio](https://baha.engineer/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Overview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio reflects my journey in web and mobile development — from the technologies I work with daily to the projects I am most proud of. It is designed with a focus on clean code, smooth user experience, and performance.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Features
+
+- Clean, modern interface with smooth animations and interactions
+- Fully responsive across mobile, tablet, and desktop
+- Projects showcase with detailed descriptions
+- Integrated contact section
+- Optimized for performance and fast load times
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| UI Framework | React |
+| Styling | Tailwind CSS |
+| Language | JavaScript |
+| Build Tool | Vite |
+| Version Control | Git & GitHub |
+
+---
+
+## Project Structure
+
+```
+/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   └── assets/
+└── public/
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) installed.
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/bahasalah255/Myportfolio.git
+
+# Navigate into the project directory
+cd Myportfolio
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
+
+### Production Build
+
+```bash
+npm run build
+```
+
+---
+
+## Deployment
+
+- LINK : [porfolio](https://baha.engineer/)
+
+---
+
+## Author
+
+**Salah Baha** — Full Stack Developer
+
+- GitHub: [@bahasalah255](https://github.com/bahasalah255)
+
+---
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).

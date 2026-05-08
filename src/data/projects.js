@@ -10,6 +10,8 @@ import n8n from '../assets/images/n8n.png'
 import airbnb from '../assets/images/airbnb.png';
 import image from '../assets/images/image.png';
 import logistic from '../assets/images/logistic.png'
+import zabix from '../assets/images/zabixx.png'
+import germanApp from '../assets/images/german.png'
 const projects = [
     {
       title: "Devis App",
@@ -66,6 +68,19 @@ const projects = [
      
     },
     {
+  title: "German Learning App",
+  repo_name: "german-learning-app",
+  category: "Mobile / React Native",
+  description:
+    "A mobile language learning app for German, featuring daily word of the day, streak tracking, XP and leveling system, vocabulary management, and sentence practice. Designed to make language learning engaging through gamification.",
+  tech: ["React Native", "Expo", "JavaScript"],
+  image: germanApp,
+  imageScale: 0.99,
+  imagePosition: "50% 10%",
+  github: "https://github.com/bahasalah255/german-learning-app",
+  demo: "https://expo.dev/accounts/salah12311/projects/almand-app/builds/a600cdc3-3f55-4e7d-bfee-f338ba7ae951",
+},
+    {
       title: "ISTA Platform",
       repo_name : "my-ista",
       category: "Front-End / Web",
@@ -77,6 +92,19 @@ const projects = [
       demo: "https://my-ista.vercel.app/",
       
     },
+    {
+  title: "Network Supervision Lab",
+  repo_name: "supervision-lab",
+  category: "DevOps / Networking",
+  description:
+    "A network supervision platform built with Zabbix 6.4, configured to monitor host availability, CPU utilization, and system performance in real-time. Features include custom dashboards, alert management by severity, geomap visualization, and automated data collection with trigger-based notifications.",
+  tech: ["Zabbix", "Linux", "SNMP", "MySQL"],
+  image: zabix,
+  imageScale: 0.99,
+  imagePosition: "50% 20%",
+  github: "#",
+  demo: "#",
+},
     {
       title: "AutoFix Website",
       repo_name : "AutoFix-Garage",

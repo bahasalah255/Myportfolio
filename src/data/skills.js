@@ -64,6 +64,7 @@ export const ITEMS = [
     name: "React",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
   },
+  
   {
     id: 2,
     name: "Javascript",
@@ -109,4 +110,9 @@ export const ITEMS = [
     name: "MySql",
     src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
   },
+  {
+    id: 11,
+    name: "jQuery",
+    src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg",
+  }
 ];

@@ -5,7 +5,7 @@ import { motion, useInView } from 'framer-motion'
 export function RadialIntro({ orbitItems = [] }) {
   const sectionRef = useRef(null)
   const isInView = useInView(sectionRef, { once: true, amount: 0.35 })
-  const items = orbitItems.slice(0, 10)
+  const items = orbitItems.slice(0, 12)
   const radius = 150
   const introDuration = 0.7
 

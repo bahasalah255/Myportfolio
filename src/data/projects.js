@@ -12,6 +12,7 @@ import image from '../assets/images/image.png';
 import logistic from '../assets/images/logistic.png'
 import zabix from '../assets/images/zabixx.png'
 import germanApp from '../assets/images/german.png'
+import shield from '../assets/images/shiled.png'
 const projects = [
     {
       title: "Devis App",
@@ -79,6 +80,19 @@ const projects = [
   imagePosition: "50% 10%",
   github: "https://github.com/bahasalah255/german-learning-app",
   demo: "https://expo.dev/accounts/salah12311/projects/almand-app/builds/a600cdc3-3f55-4e7d-bfee-f338ba7ae951",
+},
+{
+  title: "AntiBot Shield Dashboard",
+  repo_name: "Shield-Dashboard",
+  category: "Full-Stack / Web",
+  description:
+    "AntiBot Shield Dashboard Tableau de bord centralisé de surveillance pour la protection anti-bot multi-sites.",
+  tech: ["React", "PHP", "JavaScript"],
+  image: shield,
+  imageScale: 0.99,
+  imagePosition: "50% 10%",
+  github: "https://github.com/bahasalah255/Shield-Dashboard",
+  demo: "#",
 },
     {
       title: "ISTA Platform",

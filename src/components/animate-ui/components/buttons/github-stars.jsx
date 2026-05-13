@@ -25,22 +25,6 @@ export function GitHubStarsButton({
     return `https://github.com/${username}/${repo}`
   }, [variant, username, repo])
 
-  const readCachedStars = (key) => {
-    try {
-      return localStorage.getItem(key)
-    } catch {
-      return null
-    }
-  }
-
-  const writeCachedStars = (key, value) => {
-    try {
-      localStorage.setItem(key, value)
-    } catch {
-      // Ignore storage failures on browsers that block localStorage.
-    }
-  }
-
   useEffect(() => {
     let cancelled = false
 
@@ -50,7 +34,7 @@ export function GitHubStarsButton({
     }
 
     const key = `gh-stars:${username}/${repo}`
-    const cached = readCachedStars(key)
+    const cached = localStorage.getItem(key)
 
     if (cached) {
       try {
@@ -79,7 +63,7 @@ export function GitHubStarsButton({
         }
 
         if (count !== null) {
-          writeCachedStars(
+          localStorage.setItem(
             key,
             JSON.stringify({ value: count, timestamp: Date.now() })
           )

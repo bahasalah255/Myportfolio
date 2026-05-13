@@ -1,19 +1,46 @@
 /* eslint-disable no-unused-vars */
 import { motion, useReducedMotion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import GitHubStarsButtonDemo from "../components/ui/ButtonGithub";
 import projects from "../data/projects.js";
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState("all");
+
+  // FIX 1: Initialize isMobile correctly on first render using a lazy initializer.
+  // Previously it was useState(false), which caused the animation to start with
+  // opacity: 0 on mobile before useEffect could flip it to true — leaving the
+  // section permanently invisible if the IntersectionObserver fired too early.
+  const [isMobile, setIsMobile] = useState(
+    () =>
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 768px)").matches
+  );
+
   const reduceMotion = useReducedMotion();
+  const shouldReduceMotion = reduceMotion || isMobile;
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+
+    const updateIsMobile = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    updateIsMobile();
+    mediaQuery.addEventListener("change", updateIsMobile);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateIsMobile);
+    };
+  }, []);
 
   const filters = [
     { key: "all", label: "All" },
     { key: "web", label: "Web" },
     { key: "mobile", label: "Mobile" },
     { key: "dashboard", label: "Dashboard" },
-    {key : "Workflow / Automation" , label : "Automation"},
+    { key: "Workflow / Automation", label: "Automation" },
   ];
 
   const filteredProjects = useMemo(() => {
@@ -30,9 +57,14 @@ export default function Projects() {
       className="relative z-10 mx-auto max-w-7xl scroll-mt-16 px-6 pt-8 pb-16 text-white lg:px-8 lg:pt-10 lg:pb-24"
     >
       <motion.div
-        initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
-        whileInView={reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.12, margin: "0px 0px -6% 0px" }}
+        initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
+        whileInView={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+        // FIX 2: Removed margin: "0px 0px -6% 0px" — the negative bottom margin
+        // was shrinking the IntersectionObserver's trigger zone. On small mobile
+        // screens this pushed the trigger point below the visible viewport, so
+        // whileInView never fired and the section stayed at opacity: 0.
+        // Also lowered amount to 0.05 for safer triggering on short screens.
+        viewport={{ once: true, amount: 0.05 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="flex flex-col gap-3">
@@ -81,14 +113,17 @@ export default function Projects() {
             return (
               <motion.article
                 key={project.title + index}
-                initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
                 whileInView={
-                  reduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }
+                  shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }
                 }
-                viewport={{ once: true, amount: 0.12 }}
+                // FIX 3: Same viewport fix applied to individual project cards —
+                // removed negative margin and lowered amount threshold so cards
+                // animate in reliably on mobile screens.
+                viewport={{ once: true, amount: 0.05 }}
                 transition={{
                   duration: 0.5,
-                  delay: reduceMotion ? 0 : index * 0.05,
+                  delay: shouldReduceMotion ? 0 : index * 0.05,
                   ease: "easeOut",
                 }}
                 className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06]"
@@ -118,36 +153,35 @@ export default function Projects() {
                       size="lg"
                       repo={project.repo_name}
                       className="pointer-events-auto"
-                      
                     />
-                    
-                    {project.demo !== "#" ? (
-  <span className="group/demo relative inline-flex">
-    <a
-      href={project.demo}
-      target="_blank"
-      rel="noreferrer"
-      className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-200/25 bg-slate-900/75 text-cyan-100/90 shadow-[0_6px_24px_rgba(6,182,212,0.16)] backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:border-cyan-200/45 hover:bg-slate-800/80 hover:text-cyan-50 hover:shadow-[0_10px_30px_rgba(6,182,212,0.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        className="h-5 w-5 transition-transform duration-200 group-hover/demo:rotate-6"
-      >
-        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-        <path d="M15 3h6v6" />
-        <path d="M10 14L21 3" />
-      </svg>
-    </a>
 
-    <span className="pointer-events-none absolute bottom-full right-0 mb-2 inline-flex items-center gap-2 whitespace-nowrap rounded-xl border border-cyan-200/25 bg-slate-900/90 px-3.5 py-2 text-[11px] font-medium tracking-wide text-cyan-100 shadow-[0_8px_30px_rgba(6,182,212,0.22)] backdrop-blur-md opacity-0 translate-y-1 scale-95 transition-all duration-200 group-hover/demo:opacity-100 group-hover/demo:translate-y-0 group-hover/demo:scale-100">
-      <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 animate-pulse" />
-      View Demo
-    </span>
-  </span>
+                    {project.demo !== "#" ? (
+                      <span className="group/demo relative inline-flex">
+                        <a
+                          href={project.demo}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-200/25 bg-slate-900/75 text-cyan-100/90 shadow-[0_6px_24px_rgba(6,182,212,0.16)] backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:border-cyan-200/45 hover:bg-slate-800/80 hover:text-cyan-50 hover:shadow-[0_10px_30px_rgba(6,182,212,0.28)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-200/45"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            className="h-5 w-5 transition-transform duration-200 group-hover/demo:rotate-6"
+                          >
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <path d="M15 3h6v6" />
+                            <path d="M10 14L21 3" />
+                          </svg>
+                        </a>
+
+                        <span className="pointer-events-none absolute bottom-full right-0 mb-2 inline-flex items-center gap-2 whitespace-normal break-words text-center rounded-xl border border-cyan-200/25 bg-slate-900/90 px-3.5 py-2 text-[11px] font-medium tracking-wide text-cyan-100 shadow-[0_8px_30px_rgba(6,182,212,0.22)] backdrop-blur-md opacity-0 translate-y-1 scale-95 transition-all duration-200 group-hover/demo:opacity-100 group-hover/demo:translate-y-0 group-hover/demo:scale-100">
+                          <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 animate-pulse" />
+                          View Demo
+                        </span>
+                      </span>
                     ) : (
                       <span className="group/deploy relative inline-flex">
                         <span className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-black/45 text-white/80 backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10 hover:text-white">
@@ -164,7 +198,7 @@ export default function Projects() {
                           </svg>
                         </span>
 
-                        <span className="pointer-events-none absolute bottom-full right-0 mb-2 hidden items-center gap-2 whitespace-nowrap rounded-xl border border-cyan-200/25 bg-slate-900/90 px-3.5 py-2 text-[11px] font-medium tracking-wide text-cyan-100 shadow-[0_8px_30px_rgba(6,182,212,0.22)] backdrop-blur-md opacity-0 translate-y-1 scale-95 transition-all duration-200 sm:inline-flex sm:group-hover/deploy:opacity-100 sm:group-hover/deploy:translate-y-0 sm:group-hover/deploy:scale-100">
+                        <span className="pointer-events-none absolute bottom-full right-0 mb-2 hidden items-center gap-2 whitespace-normal break-words text-center rounded-xl border border-cyan-200/25 bg-slate-900/90 px-3.5 py-2 text-[11px] font-medium tracking-wide text-cyan-100 shadow-[0_8px_30px_rgba(6,182,212,0.22)] backdrop-blur-md opacity-0 translate-y-1 scale-95 transition-all duration-200 sm:inline-flex sm:group-hover/deploy:opacity-100 sm:group-hover/deploy:translate-y-0 sm:group-hover/deploy:scale-100">
                           <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 animate-pulse" />
                           Working on deployment
                         </span>

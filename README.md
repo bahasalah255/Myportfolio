@@ -1,4 +1,4 @@
-# Salah Baha — Portfolio
+# Salaheddine Baha — Portfolio
 
 A modern, performant portfolio built to showcase my projects, skills, and experience as a Full Stack Developer.
 

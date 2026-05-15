@@ -116,7 +116,7 @@ export default function About() {
                 className="group inline-flex items-center gap-2 rounded-xl border border-white/20 bg-gradient-to-r from-blue-500/20 to-violet-500/20 px-5 py-3 text-sm sm:text-base font-semibold text-white shadow-lg shadow-blue-500/10 transition duration-300 hover:-translate-y-0.5 hover:border-white/35 hover:from-blue-500/30 hover:to-violet-500/30 hover:shadow-blue-500/20"
               >
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-300 shadow-[0_0_10px_rgba(110,231,183,0.9)]" />
-                <span>+ 600 Contributions</span>
+                <span>+ 700 Contributions</span>
               </motion.button>
 
               <motion.button
@@ -125,7 +125,7 @@ export default function About() {
                 className="group inline-flex items-center gap-2 rounded-xl border border-white/20 bg-white/5 px-5 py-3 text-sm sm:text-base font-semibold text-white backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-blue-300/50 hover:bg-blue-500/10"
               >
                 <span className="h-2.5 w-2.5 rounded-full bg-sky-300 shadow-[0_0_10px_rgba(125,211,252,0.9)]" />
-                <span>7 Languages</span>
+                <span>11 Languages</span>
               </motion.button>
             </motion.div>
           </motion.div>

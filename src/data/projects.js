@@ -13,7 +13,7 @@ import logistic from '../assets/images/logistic.png'
 import zabix from '../assets/images/zabixx.png'
 import germanApp from '../assets/images/german.png'
 import shield from '../assets/images/shiled.png'
-import free from '../assets/images/fre.png'
+import fre from '../assets/images/fre.png'
 const projects = [
     {
       title: "Devis App",

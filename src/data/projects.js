@@ -13,6 +13,7 @@ import logistic from '../assets/images/logistic.png'
 import zabix from '../assets/images/zabixx.png'
 import germanApp from '../assets/images/german.png'
 import shield from '../assets/images/shiled.png'
+import free from '../assets/images/fre.png'
 const projects = [
     {
       title: "Devis App",
@@ -149,7 +150,7 @@ const projects = [
       description:
         "A web-based academic events portal with role-based dashboards for students and managers. Built with PHP, MySQL, and vanilla HTML/CSS/JS, it supports event scheduling, user management, and authentication",
       tech: ["Html", "CSS" , "Javascript", 'PHP', 'mysql'],
-      image: ista,
+      image: fre,
       github: "https://github.com/bahasalah255/academic-portal",
       demo: '#',
       

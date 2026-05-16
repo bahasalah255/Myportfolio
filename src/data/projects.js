@@ -83,7 +83,7 @@ const projects = [
 },
 {
   title: "AntiBot Shield Dashboard",
-  repo_name: "Shield-Dashboard",
+  repo_name: "Shield--Dashboard",
   category: "Full-Stack / Web",
   description:
     "AntiBot Shield Dashboard Tableau de bord centralisé de surveillance pour la protection anti-bot multi-sites.",
@@ -91,7 +91,7 @@ const projects = [
   image: shield,
   imageScale: 0.99,
   imagePosition: "50% 10%",
-  github: "https://github.com/bahasalah255/Shield-Dashboard",
+  github: "https://github.com/bahasalah255/Shield--Dashboard",
   demo: "#",
 },
     {
@@ -142,6 +142,18 @@ const projects = [
       github: "https://github.com/bahasalah255/devis-app-web",
       demo: "#",
           },
+      {
+      title: "Academie Portal",
+      repo_name : "academic-portal",
+      category: "Full-Stack / Web",
+      description:
+        "A web-based academic events portal with role-based dashboards for students and managers. Built with PHP, MySQL, and vanilla HTML/CSS/JS, it supports event scheduling, user management, and authentication",
+      tech: ["Html", "CSS" , "Javascript", 'PHP', 'mysql'],
+      image: ista,
+      github: "https://github.com/bahasalah255/academic-portal",
+      demo: '#',
+      
+    },
     {
       title: "Automated B2B Email Outreach",
       repo_name : "n8n-email-automation",

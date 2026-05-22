@@ -14,6 +14,7 @@ import zabix from '../assets/images/zabixx.png'
 import germanApp from '../assets/images/german.png'
 import shield from '../assets/images/shiled.png'
 import fre from '../assets/images/fre.png'
+import tahadi from '../assets/images/tahadi.png'
 const projects = [
     {
       title: "Devis App",
@@ -153,6 +154,18 @@ const projects = [
       image: fre,
       github: "https://github.com/bahasalah255/academic-portal",
       demo: '#',
+      
+    },
+    {
+      title: "Education Platform – Learning Management System (LMS)",
+      repo_name : "education-platforme",
+      category: "Full-Stack / Web",
+      description:
+        "Développement d’une plateforme éducative web permettant la gestion des cours, utilisateurs et contenus pédagogiques avec une interface moderne et responsive",
+      tech: ["Html", "CSS" , "Javascript", 'PHP', 'mysql'],
+      image: tahadi,
+      github: "https://github.com/bahasalah255/education-platforme",
+      demo: 'http://84.8.221.159/',
       
     },
     {

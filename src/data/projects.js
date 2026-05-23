@@ -15,6 +15,7 @@ import germanApp from '../assets/images/german.png'
 import shield from '../assets/images/shiled.png'
 import fre from '../assets/images/fre.png'
 import tahadi from '../assets/images/tahadi.png'
+import booklib from '../assets/images/booklib.png'
 const projects = [
     {
       title: "Devis App",
@@ -168,6 +169,17 @@ const projects = [
       demo: 'http://84.8.221.159/',
       
     },
+    {
+  title: "BookLib – Gestion de Bibliothèque Universitaire",
+  repo_name: "BookLib",
+  category: "Backend / Microservices",
+  description:
+    "Système de gestion de bibliothèque universitaire basé sur une architecture microservices. Comprend la gestion du catalogue de livres, des emprunts/retours, et l'authentification JWT. Communication asynchrone via RabbitMQ et conteneurisation complète avec Docker.",
+  tech: ["Node.js", "Express.js", "MongoDB", "RabbitMQ", "Docker", "JWT", "REST API"],
+  image: booklib, 
+  github: "https://github.com/bahasalah255/BookLib",
+  demo: null, 
+},
     {
       title: "Automated B2B Email Outreach",
       repo_name : "n8n-email-automation",

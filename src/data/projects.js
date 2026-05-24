@@ -16,6 +16,7 @@ import shield from '../assets/images/shiled.png'
 import fre from '../assets/images/fre.png'
 import tahadi from '../assets/images/tahadi.png'
 import booklib from '../assets/images/booklib.png'
+import edu from '../assets/images/edu.png'
 const projects = [
     {
       title: "Devis App",
@@ -43,6 +44,17 @@ const projects = [
       demo: "#",
      
     },
+    {
+  title: "EduGenAI",
+  repo_name: "EduGenAI",
+  category: "Full-Stack / Web",
+  description:
+    "AI-powered German lesson generator built with Laravel and NVIDIA NIM — complete CRUD with multilingual support for Moroccan learners.",
+  tech: ["PHP", "Laravel", "MySQL", "React", "CSS"],
+  image: edu,
+  github: "https://github.com/bahasalah255/EduGenAI",
+  demo: "#",
+},
      {
       title: "Airbnb System",
       repo_name : "airbnb-system",
